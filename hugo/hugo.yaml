@@ -1,0 +1,419 @@
+baseURL: "https://hugo-profile.netlify.app"
+languageCode: "en-us"
+title: "MKCyberLabs"
+theme: "hugo-profile"
+googleAnalytics: "G-JRZVLFMDK8"
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+  page:
+    - "HTML"
+    - "RSS"
+
+enableRobotsTXT: true
+
+#services:
+  #googleAnalytics:
+    #id: G-MEASUREMENT_ID
+  #disqus:
+    #shortname: your-disqus-shortname
+
+pagination:
+  pagerSize: 3
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Menus:
+#   main:
+#     - identifier: blog
+#       name: Blog
+#       title: Blog posts
+#       url: /blogs
+#       weight: 1
+#     - identifier: gallery
+#       name: Gallery
+#       title: Blog posts
+#       url: /gallery
+#       weight: 2
+    #Dropdown menu
+    # - identifier: dropdown
+    #   title: Example dropdown menu
+    #   name: Dropdown
+    #   weight: 3
+    # - identifier: dropdown1
+    #   title: example dropdown 1
+    #   name: example 1
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 1
+    # - identifier: dropdown2
+    #   title: example dropdown 2
+    #   name: example 2
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 2
+
+params:
+  title: "MKCyberLabs"
+  description: Exploring the world of full-stack development and cybersecurity with projects, certifications, and hands-on security research.
+  # staticPath: ""  # The path to serve the static files from
+  favicon: "/fav.png"
+
+  # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
+  # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
+  # Note the lack of "" in true, it should be of boolean type.
+  useBootstrapCDN: false
+
+  # If you want to load dynamically responsive images from Cloudinary
+  # This requires your images to be uploaded + hosted on Cloudinary
+  # Uncomment and change YOUR_CLOUD_NAME to the Cloud Name in your Cloudinary console
+  # cloudinary_cloud_name: "YOUR_CLOUD_NAME"
+
+  # Whether to add mathjax support on all pages. Alternatively, you can opt-in per page by adding `mathjax: true` in the frontmatter.
+  mathjax: false
+
+  # Whether the fade animations on the home page will be enabled
+  animate: true
+
+  theme:
+    # disableThemeToggle: true
+    # defaultTheme: "light" # dark
+
+  font:
+    fontSize: 1rem # default: 1rem
+    fontWeight: 400 # default: 400
+    lineHeight: 1.5 # default: 1.5
+    textAlign: left # default: left
+
+  # color preference
+  # When using hex codes for colors, quotations must be used along with the # sign
+  # color:
+  #   textColor: "#343a40"
+  #   secondaryTextColor: "#6c757d"
+  #   textLinkColor: "#007bff"
+  #   backgroundColor: "#eaedf0"
+  #   secondaryBackgroundColor: "#64ffda1a"
+  #   primaryColor: "#007bff"
+  #   secondaryColor: "#f8f9fa"
+
+  #   darkmode:
+  #     textColor: "#e4e6eb"
+  #     secondaryTextColor: "#b0b3b8"
+  #     textLinkColor: "#ffffff"
+  #     backgroundColor: "#18191a"
+  #     secondaryBackgroundColor: "#212529"
+  #     primaryColor: "#ffffff"
+  #     secondaryColor: "#212529"
+
+  # If you want to customize the menu, you can change it here
+  navbar:
+    align: ms-auto # Left: ms-auto | center: mx-auto | right: me-auto | Default: ms-auto
+    # brandLogo: "/logo.png" # Logo for the brand | default is the favicon variable
+    # showBrandLogo: false # Show brand logo in nav bar | default is true
+    brandName: "MKCyberLabs" # Brand name for the brand | default is the title variable
+    disableSearch: true
+    # searchPlaceholder: "Search"
+    stickyNavBar:
+      enable : true
+      showOnScrollUp : true
+    enableSeparator: false
+    menus:
+      disableAbout: false
+      disableExperience: false
+      disableEducation: false
+      disableCertificates: false
+      disableAchievements: false
+      disableContact: false
+
+  # Hero
+  hero:
+    enable: true
+    intro: "Hi, my name is"
+    title: "Manickam Kumar."
+    subtitle: "Code. Break. Secure."
+    content: "From full‑stack development to cyber security, I leverage my tech expertise to secure systems, protect data, and transform challenges into solutions."
+    image: /images/hero.jpg
+    bottomImage:
+      enable: true
+    # roundImage: true # Make hero image circular | default false
+    button:
+      enable: true
+      name: "Resume"
+      url: "/Manickam_Resume.pdf"
+      download: true
+      newPage: false
+    socialLinks:
+      fontAwesomeIcons:
+        - icon: fab fa-github
+          url: https://github.com/MKCyberLabs
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/manickam-kumar
+      # customIcons:
+      #   - icon: /fav.png
+      #     url: "https://example.com"
+
+  # About
+  about:
+    enable: true
+    title: "About Me"
+    image: "/images/me.jpg"
+    content: |-
+      I am a senior full-stack developer with a passion for building secure and scalable applications. I have a background in computer science and a strong foundation in backend development, DevOps, and cybersecurity. I am currently working as a Senior Full Stack Developer at Crest IT Consulting in Mumbai, India.
+
+      I am currently working on certificates that involve designing module architecture, developing backend and frontend systems, and implementing secure authentication and server deployments.
+    skills:
+      enable: true
+      title: "Here are a few technologies I've been working with recently:"
+      items:
+        - "Java (Spring Boot)"
+        - "PHP (CodeIgniter)"
+        - "MySQL/MariaDB"
+        - "JavaScript"
+        - "Docker"
+        - "Keycloak"
+        - "Burp Suite"
+
+  # Experience
+  experience:
+    enable: true
+    # title: "Custom Name"
+    items:
+    - job: "Senior Full Stack Developer"
+      company: "Crest IT Consulting"
+      companyUrl: "https://www.crestit.in/"
+      date: "Aug 2024 - Present"
+      featuredLink:
+        enable: false
+      content: "Designed module architecture, workflows, and ER diagrams. Developed frontend, PHP backend, and relational database. Deployed and maintained server and application."
+      
+    - job: "Senior Associate Software Developer"
+      company: "Klay Capital"
+      companyUrl: "https://www.klaycapital.com/"
+      date: "Jun 2022 - Jul 2024"
+      featuredLink:
+        enable: false
+      content: "Designed, built, and maintained efficient, reusable, and reliable Java code. Identified bottlenecks and bugs, and devised solutions to these problems. Ensured the best possible performance, quality, and responsiveness of the applications."
+      
+    - job: "Junior Software Developer"
+      company: "Terbium Solutions"
+      companyUrl: "https://www.terbiumsolutions.com/"
+      date: "Jul 2021 - Jun 2022"
+      featuredLink:
+        enable: false
+      content: "Developed applications, debugged and unit tested code. Planned, supervised, and coordinated daily activity of 4 junior developers."
+      
+    - job: "Software Developer Intern"
+      company: "Milan Laboratories"
+      companyUrl: "https://milanlabs.com/"
+      date: "Jan 2021 - Jul 2021"
+      featuredLink:
+        enable: false
+      content: "Collected requirements from end-users and implemented them in the software. Assisted with troubleshooting and resolving issues."
+
+  # Education
+  education:
+    enable: true
+    # title: "Custom Name"
+    index: false
+    items:
+      - title: "Master in Computer Application"
+        school:
+          name: "SIES College, Mumbai University"
+          url: "https://mu.ac.in"
+        date: "Aug 2018 - Jul 2021"
+        GPA: ""
+        content: |-
+          Relevant Coursework
+            - Advanced Web Technologies
+            - Software Engineering
+            - Data Structures and Algorithms
+          Achievements
+            - Conducted project guidance sessions for T.Y.B.Sc (IT) students and solved their queries.
+      - title: "Bachelor of Science in Information Technology"
+        school:
+          name: "SIES College, Mumbai University"
+          url: "https://mu.ac.in"
+        date: "Aug 2015 - Apr 2018"
+        GPA: ""
+        content: |-
+          Relevant Coursework
+            - Database Management Systems
+            - Object-Oriented Programming
+            - Computer Networks
+          Achievements
+            - Developed strong foundation in programming and software development.
+
+
+  # Achievements
+  achievements:
+    enable: true
+    # title: "Custom Name"
+    items:
+      - title: Project Guidance for T.Y.B.Sc (IT) Students
+        content: Led a project guidance session for final-year IT students, mentoring them on software development practices and resolving technical challenges.
+        url: https://siesascs.edu.in/
+        image: /images/achievement.jpg
+      - title: Cybersecurity Home Lab
+        content: Built a personal cybersecurity home lab with tools like Burp Suite, Wireshark, and Metasploit to practice penetration testing and network security..
+        image: /images/achievement.jpg
+      - title: Sports Head – MCA Pixel Event
+        content: Served as the Sports Head for MCA Pixel, successfully organizing and managing sports activities, demonstrating leadership and team coordination skills.
+        image: /images/achievement.jpg
+
+
+  # certificates
+  certificates:
+    enable: true
+    # title: "Custom Name"
+    items:
+
+          
+    - title: "eJPT Certification"
+      content: "eLearnSecurity Junior Penetration Tester (eJPT) certification demonstrating foundational skills in penetration testing and vulnerability assessment."
+      image: /images/certificates/ejpt.JPG
+      featured:
+        name: "View Certificate"
+        link: https://certs.ine.com/083ce10b-d8fd-4248-a15e-808bc4b79d0c
+      badges:
+        - "Cybersecurity"
+        - "Penetration Testing"
+        - "eLearnSecurity"
+      links:
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/manickam-kumar
+          
+    - title: "INE Certified Cloud Associate"
+      content: "INE Certified Cloud Associate (ICCA) certification demonstrating foundational skills in Cloud Computing and Infrastructure-as-a-Service"
+      image: /images/certificates/ICCA.png
+      featured:
+        name: "View Certificate"
+        link: https://certs.ine.com/10fa07e0-6fbd-4f32-b6da-2a327a4272ad
+      badges:
+        - "AWS"
+        - "Infrastructure-as-a-Service"
+        - "Identity and Access Management"
+      links:
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/manickam-kumar
+
+    - title: "Google Cybersecurity Professional Certificate"
+      content: "Completed Google Cybersecurity Professional Certificate covering security operations, network security, and incident response."
+      image: /images/certificates/google-cybersecurity.JPG
+      featured:
+        name: "View Certificate"
+        link: https://www.coursera.org/account/accomplishments/professional-cert/certificate/MDDON1LTEZ1M
+      badges:
+        - "Cybersecurity"
+        - "Google"
+        - "Security Operations"
+      links:
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/manickam-kumar
+
+    - title: "NPTEL Java"
+      content: "Completed NPTEL Java certification with 79% score, strengthening core programming and OOP skills."
+      image: /images/certificates/nptel-java.JPG
+      featured:
+        name: "View Certificate"
+        link: https://archive.nptel.ac.in/content/noc/NOC23/SEM2/Ecertificates/106/noc23-cs74/Course/NPTEL23CS74S74230052320245693.pdf
+      badges:
+        - "Java"
+        - "Programming"
+        - "NPTEL"
+      links:
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/manickam-kumar
+
+    - title: "NPTEL Data Structures & Algorithms"
+      content: "Achieved 79% in NPTEL certification for Data Structures & Algorithms, enhancing problem-solving and algorithmic knowledge."
+      image: /images/certificates/nptel-dsa.JPG
+      featured:
+        name: "View Certificate"
+        link: https://archive.nptel.ac.in/content/noc/NOC23/SEM2/Ecertificates/106/noc23-cs85/Course/NPTEL23CS85S84230278220245693.pdf
+      badges:
+        - "DSA"
+        - "Algorithms"
+        - "NPTEL"
+      links:
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/manickam-kumar
+
+    - title: "NPTEL Cloud Computing"
+      content: "Completed NPTEL certification in Cloud Computing with 73% score, gaining knowledge of cloud platforms and architecture."
+      image: /images/certificates/nptel-cloud.JPG
+      featured:
+        name: "View Certificate"
+        link: https://archive.nptel.ac.in/content/noc/NOC23/SEM2/Ecertificates/106/noc23-cs89/Course/NPTEL23CS89S64230336120245693.pdf
+      badges:
+        - "Cloud Computing"
+        - "NPTEL"
+        - "Architecture"
+      links:
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/manickam-kumar
+   
+
+  #Contact
+  contact:
+    enable: true
+    # title: "Custom Name"
+    content: Let's connect! Whether you have a question, a collaboration idea, or just want to say hi, my inbox is always open. I'll get back to you as soon as possible!
+    btnName: Mail me
+    btnLink: mailto:contact@mkcyberlabs.in
+    # formspree:
+    #   enable: true # `contact.email` value will be ignored
+    #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
+    #   emailCaption: "Enter your email address"
+    #   messageCaption: "Enter your message here"
+    #   messageRows: 5
+
+  footer:
+    recentPosts:
+      path: "blogs"
+      count: 3
+      title: Recent Posts
+      enable: true
+      disableFeaturedImage: false
+    socialNetworks:
+      # github: https://github.com
+      linkedin: https://in.linkedin.com/in/manickam-kumar
+      youtube: https://www.youtube.com/@manickamkumar7124
+      instagram: https://www.instagram.com/manickamkumar/
+      # facebook: https://facebook.com
+
+  # List pages like blogs and posts
+  listPages:
+    disableFeaturedImage: false
+
+  # Single pages like blog and post
+  singlePages:
+    socialShare: true
+    readTime:
+      enable: true
+      content: "min read"
+    scrollprogress:
+      enable: true
+    tags:
+      openInNewTab: true
+
+  # For translations
+  terms:
+    read: "Read"
+    toc: "Table Of Contents"
+    copyright: "All rights reserved"
+    pageNotFound: "Page not found"
+    emailText: "Check out this site"
+
+  datesFormat:
+    article: "Jan 2, 2006"
+    articleList: "Jan 2, 2006"
+    articleRecent: "Jan 2, 2006"
+
+  #customScripts: -| # You can add custom scripts which will be added before </body> tag
+  #  <script type="text/javascript"><!-- any script here --></script>

@@ -1,0 +1,22 @@
+/* Remove top padding from navbar - High specificity override */
+#profileHeader nav.navbar.pt-3,
+#profileHeader nav.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Target the navbar directly with higher specificity */
+header#profileHeader > nav.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Ensure no padding is inherited */
+#profileHeader {
+    padding-top: 0 !important;
+}
+
+/* Override any inline styles */
+nav[class*="pt-"] {
+    padding-top: 0 !important;
+}

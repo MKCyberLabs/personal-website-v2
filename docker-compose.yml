@@ -1,0 +1,32 @@
+services:
+  hugo-prod:
+    build: .
+    container_name: hugo_prod
+    restart: unless-stopped
+
+    labels:
+      - "traefik.enable=true"
+
+       # MAIN SITE (www)
+      - "traefik.http.routers.hugo-www.rule=Host(`www.mkcyberlabs.in`)"
+      - "traefik.http.routers.hugo-www.entrypoints=websecure"
+      - "traefik.http.routers.hugo-www.tls.certresolver=letsencrypt"
+      - "traefik.http.services.hugo.loadbalancer.server.port=80"
+
+      # ROOT DOMAIN ? REDIRECT TO WWW
+      - "traefik.http.routers.hugo-root.rule=Host(`mkcyberlabs.in`)"
+      - "traefik.http.routers.hugo-root.entrypoints=websecure"
+      - "traefik.http.routers.hugo-root.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.hugo-root.middlewares=redirect-to-www"
+
+      # Middleware
+      - "traefik.http.middlewares.redirect-to-www.redirectregex.regex=^https://mkcyberlabs.in/(.*)"
+      - "traefik.http.middlewares.redirect-to-www.redirectregex.replacement=https://www.mkcyberlabs.in/$${1}"
+      - "traefik.http.middlewares.redirect-to-www.redirectregex.permanent=true"
+
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
