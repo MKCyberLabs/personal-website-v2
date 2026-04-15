@@ -115,3 +115,7 @@ async function performSearch(evt) {
     document.getElementById("search-results").innerHTML = "";
   }
 }
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { isValidUrl };
+}

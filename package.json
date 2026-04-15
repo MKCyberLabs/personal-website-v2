@@ -1,0 +1,13 @@
+{
+  "name": "hugo-profile-tests",
+  "version": "1.0.0",
+  "description": "Tests for hugo-profile theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
