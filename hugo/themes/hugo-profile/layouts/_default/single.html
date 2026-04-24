@@ -61,7 +61,7 @@
             <ul class="tags-ul list-unstyled list-inline">
               {{range .Params.tags}}
               <li class="list-inline-item"><a href="{{`tags` | absURL}}/{{.| urlize}}"
-                {{ if site.Params.singlePages.tags.openInNewTab | default true }}target="_blank"{{ end }}
+                {{ if site.Params.singlePages.tags.openInNewTab | default true }}target="_blank" rel="noopener noreferrer"{{ end }}
               >{{.}}</a></li>
               {{end}}
             </ul>
