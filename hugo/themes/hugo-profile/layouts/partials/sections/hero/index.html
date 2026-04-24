@@ -20,7 +20,7 @@
                         {{ if .Site.Params.hero.button.enable }}
                         <a href="{{ .Site.Params.hero.button.url }}" class="btn" {{ cond .Site.Params.hero.button.download "download" "" }}
 			  {{ if .Site.Params.hero.button.newPage | default true }}
-                          target="_blank"
+                          target="_blank" rel="noopener noreferrer"
                           {{ end }}>
                             {{ .Site.Params.hero.button.name }}
                         </a>

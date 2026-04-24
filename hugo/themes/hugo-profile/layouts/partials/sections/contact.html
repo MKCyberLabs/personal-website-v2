@@ -30,7 +30,7 @@
                                   {{ else }}
                                     mailto:{{ .Site.Params.contact.email }}
                                   {{ end }}'
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             class="btn"
                         >
                             {{ .Site.Params.contact.btnName | default "Get in Touch" }}

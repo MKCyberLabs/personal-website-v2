@@ -2,7 +2,7 @@
     {{ range .Site.Params.hero.socialLinks.fontAwesomeIcons }}
     <span class="px-1">
         <a href="{{ .url }}"
-            {{ if not (hasPrefix .url "#") }} target="_blank" {{ end }}
+            {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
         >
             <i class="{{ .icon }}"></i>
@@ -13,7 +13,7 @@
     {{ range .Site.Params.hero.socialLinks.customIcons }}
     <span class="px-1">
         <a href="{{ .url }}"
-            {{ if not (hasPrefix .url "#") }} target="_blank" {{ end }}
+            {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
         >
             <img src="{{ .icon }}">
