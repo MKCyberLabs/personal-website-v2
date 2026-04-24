@@ -4,6 +4,7 @@
         <a href="{{ .url }}"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
+            aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
         >
             <i class="{{ .icon }}"></i>
         </a>
@@ -15,6 +16,7 @@
         <a href="{{ .url }}"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
+            aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
         >
             <img src="{{ .icon }}">
         </a>
