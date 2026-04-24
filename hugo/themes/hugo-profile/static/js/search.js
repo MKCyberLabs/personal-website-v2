@@ -117,5 +117,5 @@ async function performSearch(evt) {
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { isValidUrl };
+  module.exports = { isValidUrl, encodeHTML };
 }

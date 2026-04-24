@@ -1,3 +1,3 @@
-## 2024-04-19 - Missing ARIA labels on utility icon buttons
-**Learning:** Icon-only utility buttons (like theme toggles and scroll-to-top) in Hugo themes frequently lack ARIA labels, as developers often assume the visual icon is sufficient context. This creates a recurring accessibility barrier.
-**Action:** Always verify that utility buttons that rely purely on icons (`<svg>` or `<i>`) have descriptive `aria-label` and `title` attributes for both screen reader support and mouse hover tooltips.
+## 2026-04-16 - Accessibility of Icon-Only Buttons
+**Learning:** Icon-only buttons (like a theme toggle) often lack accessible names by default, rendering them invisible or confusing to screen readers.
+**Action:** Always add `aria-label` (and often a `title`) to icon-only buttons to ensure they have an accessible name, especially in common components like headers.
