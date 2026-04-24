@@ -1,3 +1,3 @@
-## 2024-04-17 - [Theme Toggle Accessibility]
-**Learning:** The theme toggle icon-only button was missing an ARIA label and title, making it difficult for screen readers and some mouse users to understand its function.
-**Action:** Added `aria-label` and `title` to icon-only buttons to improve accessibility and user experience.
+## 2026-04-16 - Accessibility of Icon-Only Buttons
+**Learning:** Icon-only buttons (like a theme toggle) often lack accessible names by default, rendering them invisible or confusing to screen readers.
+**Action:** Always add `aria-label` (and often a `title`) to icon-only buttons to ensure they have an accessible name, especially in common components like headers.
