@@ -4,8 +4,86 @@
     <title>Tags on MKCyberLabs</title>
     <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on MKCyberLabs</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 20 Mar 2024 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:1313/tags/cybersecurity/</link>
+      <pubDate>Wed, 20 Mar 2024 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infrastructure</title>
+      <link>http://localhost:1313/tags/infrastructure/</link>
+      <pubDate>Wed, 20 Mar 2024 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/infrastructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>http://localhost:1313/tags/learning/</link>
+      <pubDate>Wed, 20 Mar 2024 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self-Hosting</title>
+      <link>http://localhost:1313/tags/self-hosting/</link>
+      <pubDate>Wed, 20 Mar 2024 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/self-hosting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Example</title>
+      <link>http://localhost:1313/tags/example/</link>
+      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/example/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown Syntax</title>
+      <link>http://localhost:1313/tags/markdown-syntax/</link>
+      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/markdown-syntax/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mathjax</title>
+      <link>http://localhost:1313/tags/mathjax/</link>
+      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/mathjax/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sample</title>
+      <link>http://localhost:1313/tags/sample/</link>
+      <pubDate>Sat, 03 Apr 2021 23:29:21 +0530</pubDate>
+      <guid>http://localhost:1313/tags/sample/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emoji Support</title>
+      <link>http://localhost:1313/tags/emoji-support/</link>
+      <pubDate>Sat, 03 Apr 2021 22:53:58 +0530</pubDate>
+      <guid>http://localhost:1313/tags/emoji-support/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Placeholder Text</title>
+      <link>http://localhost:1313/tags/placeholder-text/</link>
+      <pubDate>Sat, 03 Apr 2021 22:41:10 +0530</pubDate>
+      <guid>http://localhost:1313/tags/placeholder-text/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rich Content</title>
+      <link>http://localhost:1313/tags/rich-content/</link>
+      <pubDate>Sat, 03 Apr 2021 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/rich-content/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

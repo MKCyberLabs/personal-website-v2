@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infrastructure on MKCyberLabs</title>
+    <link>http://localhost:1313/tags/infrastructure/</link>
+    <description>Recent content in Infrastructure on MKCyberLabs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Mar 2024 10:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code. Break. Secure. My First Step to Self-Hosting</title>
+      <link>http://localhost:1313/blogs/code-break-secure/</link>
+      <pubDate>Wed, 20 Mar 2024 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blogs/code-break-secure/</guid>
+      <description>Code. Break. Secure. Every project starts on localhost.&#xA;Mine stayed there for a long time — not because of lack of ideas, but because hosting is hard.&#xA;I wanted my services to be: ⚡ Accessible from anywhere 🌍 ⚡ Secure by design 🔐 ⚡ Cost-effective 💸 ⚡ Something I fully own and control&#xA;That’s where the real struggle began.&#xA;⚠️ The Hosting Dilemma When I decided to move beyond localhost, I explored multiple paths:</description>
+    </item>
+  </channel>
+</rss>

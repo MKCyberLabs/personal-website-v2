@@ -381,10 +381,10 @@ params:
       enable: true
       disableFeaturedImage: false
     socialNetworks:
-      # github: https://github.com
+      github: https://github.com/MKCyberLabs
       linkedin: https://in.linkedin.com/in/manickam-kumar
       youtube: https://www.youtube.com/@manickamkumar7124
-      instagram: https://www.instagram.com/manickamkumar/
+      website: https://www.mkcyberlabs.in/
       # facebook: https://facebook.com
 
   # List pages like blogs and posts
