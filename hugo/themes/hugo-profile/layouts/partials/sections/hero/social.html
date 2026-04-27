@@ -1,7 +1,10 @@
 <span>
     {{ range .Site.Params.hero.socialLinks.fontAwesomeIcons }}
+    {{ $iconName := .icon | replaceRE "^(?:fab|fas|far|fa) fa-(.*)$" "$1" | title | replaceRE "Github" "GitHub" | replaceRE "Linkedin" "LinkedIn" }}
     <span class="px-1">
         <a href="{{ .url }}"
+            aria-label="{{ $iconName }}"
+            title="{{ $iconName }}"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
         >
@@ -13,6 +16,8 @@
     {{ range .Site.Params.hero.socialLinks.customIcons }}
     <span class="px-1">
         <a href="{{ .url }}"
+            aria-label="Social Link"
+            title="Social Link"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
         >
