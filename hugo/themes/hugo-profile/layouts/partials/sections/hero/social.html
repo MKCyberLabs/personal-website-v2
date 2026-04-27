@@ -7,6 +7,7 @@
             title="{{ $iconName }}"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
+            aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
         >
             <i class="{{ .icon }}"></i>
         </a>
@@ -20,6 +21,7 @@
             title="Social Link"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
+            aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
         >
             <img src="{{ .icon }}">
         </a>
