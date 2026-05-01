@@ -15,3 +15,7 @@
 ## 2024-05-18 - Dynamically generate aria-labels for configurable social links
 **Learning:** When theme social links are dynamically populated from user configuration (e.g. `{{ .url }}`) and the user might not provide an explicit name or title for pure icon links, an accessible fallback strategy is required to ensure these purely visual elements are readable by screen readers.
 **Action:** Use template functions to generate a fallback `aria-label` based on the available URL context, like `aria-label='{{ .title | default (print "Social link for " .url) }}'`, ensuring accessibility is maintained even with incomplete user configuration.
+
+## 2024-05-24 - Async Loading States and ARIA on DOM Injected Alerts
+**Learning:** Adding a spinner to a submit button during async `fetch` operations significantly improves perceived performance and prevents double submissions. Also, when injecting alerts into the DOM dynamically (like the Formspree response message), ensuring buttons inside the alert have an `aria-label` (like `aria-label="Close alert"`) is critical for screen readers to interpret the action correctly, rather than reading just "Close" without context.
+**Action:** When working on async forms, always inject disabled states with visual spinners. For dynamically created DOM nodes (e.g. alerts or toasts), always verify that actionable items have descriptive ARIA labels to ensure full accessibility.
