@@ -1,6 +1,14 @@
 async function handleFormspreeSubmit(event) {
   event.preventDefault();
   var form = document.getElementById("contact-form");
+  var button = form.querySelector('button[type="submit"]');
+  var originalButtonText = button ? button.innerHTML : "Submit";
+
+  if (button) {
+    button.disabled = true;
+    button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+  }
+
   var data = new FormData(event.target);
   fetch(event.target.action, {
     method: form.method,
@@ -10,6 +18,10 @@ async function handleFormspreeSubmit(event) {
     },
   })
     .then((response) => {
+      if (button) {
+        button.disabled = false;
+        button.innerHTML = originalButtonText;
+      }
       if (response.ok) {
         contactAlert("success", "Thanks for your submission!");
         form.reset();
@@ -23,6 +35,10 @@ async function handleFormspreeSubmit(event) {
       }
     })
     .catch((error) => {
+      if (button) {
+        button.disabled = false;
+        button.innerHTML = originalButtonText;
+      }
       contactAlert("danger", "Oops! There was a problem submitting your form");
     });
 }
@@ -34,7 +50,7 @@ function contactAlert(type, message) {
                         <use xlink:href="#check-circle-fill" />
                     </svg>
                     <div>${message}</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <button type="button" class="btn-close ms-auto" aria-label="Close alert" data-bs-dismiss="alert"></button>
                 </div>`;
   contactFormStatus.innerHTML = alert;
 
