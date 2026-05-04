@@ -34,7 +34,7 @@ function contactAlert(type, message) {
                         <use xlink:href="#check-circle-fill" />
                     </svg>
                     <div>${message}</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close alert" title="Close alert"></button>
                 </div>`;
   contactFormStatus.innerHTML = alert;
 

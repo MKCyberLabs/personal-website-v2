@@ -15,3 +15,7 @@
 ## 2024-05-18 - Dynamically generate aria-labels for configurable social links
 **Learning:** When theme social links are dynamically populated from user configuration (e.g. `{{ .url }}`) and the user might not provide an explicit name or title for pure icon links, an accessible fallback strategy is required to ensure these purely visual elements are readable by screen readers.
 **Action:** Use template functions to generate a fallback `aria-label` based on the available URL context, like `aria-label='{{ .title | default (print "Social link for " .url) }}'`, ensuring accessibility is maintained even with incomplete user configuration.
+
+## 2024-05-24 - Accessibility of Dynamically Injected UI Elements
+**Learning:** Dynamically injected UI elements such as alerts and toasts often use generic utility classes (like `.btn-close`) but lack accessible labels because they are constructed in JavaScript strings rather than defined in templates.
+**Action:** Ensure all dynamically generated interactive elements (e.g., within JS template literals) include explicit `aria-label` and `title` attributes, such as `aria-label="Close alert"` for dismissal buttons.
