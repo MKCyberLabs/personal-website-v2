@@ -15,3 +15,7 @@
 ## 2024-05-18 - Dynamically generate aria-labels for configurable social links
 **Learning:** When theme social links are dynamically populated from user configuration (e.g. `{{ .url }}`) and the user might not provide an explicit name or title for pure icon links, an accessible fallback strategy is required to ensure these purely visual elements are readable by screen readers.
 **Action:** Use template functions to generate a fallback `aria-label` based on the available URL context, like `aria-label='{{ .title | default (print "Social link for " .url) }}'`, ensuring accessibility is maintained even with incomplete user configuration.
+
+## 2024-05-05 - Interactive Elements and Form Accessibility
+**Learning:** Using `<div>` elements with `role="tab"` without explicit `tabindex="0"` breaks keyboard navigation for tabs.
+**Action:** Always use native `<button type="button">` for interactive tab controls to inherit focus and keyboard events.
