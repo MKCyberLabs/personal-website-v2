@@ -9,31 +9,33 @@
                         {{ range $index, $element := .Site.Params.experience.items }}
                         {{ if (eq $index 0) }}
                         <li class="nav-item px-1 bg-transparent" role="presentation">
-                            <div
+                            <button
                                 class="nav-link active bg-transparent"
                                 aria-selected="true"
                                 role="tab"
+                                type="button"
                                 data-bs-toggle="pill"
                                 id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
                                 data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                                aria-controls='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                aria-controls='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
                             >
                                 {{ .company }}
-                            </div>
+                            </button>
                         </li>
                         {{ else }}
                         <li class="nav-item px-1 bg-transparent" role="presentation">
-                            <div
+                            <button
                                 class="nav-link bg-transparent"
-                                aria-selected="true"
+                                aria-selected="false"
                                 role="tab"
+                                type="button"
                                 data-bs-toggle="pill"
                                 id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
                                 data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                                aria-controls='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                aria-controls='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
                             >
                                 {{ .company }}
-                            </div>
+                            </button>
                         </li>
                         {{ end }}
                         {{ end }}
