@@ -10,7 +10,7 @@ let isScrolling = false;
 document.onscroll = function () {
   if (!isScrolling) {
     window.requestAnimationFrame(function () {
-      var scrollPercent = Math.round(getScrollPercent());
+      const scrollPercent = Math.round(getScrollPercent());
       scrollProgressBar.style.width = scrollPercent + "%";
       scrollProgressBar.ariaValueNow = scrollPercent;
       isScrolling = false;
