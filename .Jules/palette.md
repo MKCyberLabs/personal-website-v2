@@ -1,3 +1,6 @@
+## 2024-05-30 - Dynamic Alert Accessibility
+**Learning:** Hardcoding accessibility strings in alert components (like always saying "Success:" on the icon, regardless of success or error state) is a common failure point when reusing a single alert generation function for multiple states. The string must be fully dynamic. Additionally, standard close buttons in dynamic alerts must explicitly define `aria-label="Close"`.
+**Action:** When working on dynamic alert generation (e.g., `contactAlert`), ensure the `aria-label` for icons and the icons themselves update according to the state (`type`), rather than remaining static. Also ensure utility buttons like `.btn-close` have an explicit `aria-label`.
 ## 2024-04-23 - Icon-only utility buttons require title attributes
 
 **Learning:** This app relies heavily on icon-only buttons (`svg` elements) for the theme toggle, navbar toggler, and social network links. While some had `aria-label` attributes for screen readers, they lacked `title` attributes. This meant that mouse users interacting with these buttons received no visual feedback or tooltip explaining their function. Additionally, some `aria-label`s were not capitalized (e.g. "github" instead of "GitHub").
@@ -19,3 +22,14 @@
 ## 2024-05-24 - Accessibility of Dynamically Injected UI Elements
 **Learning:** Dynamically injected UI elements such as alerts and toasts often use generic utility classes (like `.btn-close`) but lack accessible labels because they are constructed in JavaScript strings rather than defined in templates.
 **Action:** Ensure all dynamically generated interactive elements (e.g., within JS template literals) include explicit `aria-label` and `title` attributes, such as `aria-label="Close alert"` for dismissal buttons.
+## 2024-05-18 - Dynamically Injected DOM Element Accessibility
+**Learning:** Dynamically injected elements (like alerts or toasts) generated via client-side JavaScript often miss necessary ARIA labels for their actions because they bypass standard templating linting. Furthermore, static SVGs with `xlink:href` require dynamic updating of the `aria-label` to match the specific context (e.g., success vs. error).
+**Action:** When injecting alerts or changing context dynamically via JS, ensure actionable sub-components (like a close button) receive proper `aria-label` and `title` attributes, and that icons are given context-appropriate `aria-label` text.
+## 2026-05-02 - Adding loading indicator to contact form submission button\n**Learning:** Providing a loading state for asynchronous form submissions gives users clear feedback that their action is being processed, preventing multiple submissions and confusion.\n**Action:** Always add loading spinners and disable submit buttons during network requests for forms.
+
+## 2024-05-24 - Async Loading States and ARIA on DOM Injected Alerts
+**Learning:** Adding a spinner to a submit button during async `fetch` operations significantly improves perceived performance and prevents double submissions. Also, when injecting alerts into the DOM dynamically (like the Formspree response message), ensuring buttons inside the alert have an `aria-label` (like `aria-label="Close alert"`) is critical for screen readers to interpret the action correctly, rather than reading just "Close" without context.
+**Action:** When working on async forms, always inject disabled states with visual spinners. For dynamically created DOM nodes (e.g. alerts or toasts), always verify that actionable items have descriptive ARIA labels to ensure full accessibility.
+## 2024-05-05 - Interactive Elements and Form Accessibility
+**Learning:** Using `<div>` elements with `role="tab"` without explicit `tabindex="0"` breaks keyboard navigation for tabs.
+**Action:** Always use native `<button type="button">` for interactive tab controls to inherit focus and keyboard events.
