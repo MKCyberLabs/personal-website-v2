@@ -2,6 +2,22 @@ async function handleFormspreeSubmit(event) {
   event.preventDefault();
   const form = document.getElementById("contact-form");
   const data = new FormData(event.target);
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  let originalBtnText = "";
+  if (submitBtn) {
+    originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`;
+  }
+
+  const restoreButton = () => {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+  };
+
   fetch(event.target.action, {
     method: form.method,
     body: data,
@@ -10,6 +26,7 @@ async function handleFormspreeSubmit(event) {
     },
   })
     .then((response) => {
+      restoreButton();
       if (response.ok) {
         contactAlert("success", "Thanks for your submission!");
         form.reset();
@@ -23,18 +40,25 @@ async function handleFormspreeSubmit(event) {
       }
     })
     .catch((error) => {
+      restoreButton();
       contactAlert("danger", "Oops! There was a problem submitting your form");
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalButtonText;
     });
 }
 
 function contactAlert(type, message) {
-  const contactFormStatus = document.getElementById("contact-form-status");
-  const alert = `<div class="alert alert-${type} d-flex align-items-center" role="alert">
-                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
-                        <use xlink:href="#check-circle-fill" />
+  var contactFormStatus = document.getElementById("contact-form-status");
+  var icon = type === "success" ? "check-circle-fill" : "exclamation-triangle-fill";
+  var ariaLabel = type === "success" ? "Success:" : "Error:";
+  var alert = `<div class="alert alert-${type} d-flex align-items-center" role="alert">
+                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="${ariaLabel}">
+                        <use xlink:href="#${icon}" />
                     </svg>
                     <div>${message}</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`;
   contactFormStatus.innerHTML = alert;
 
@@ -42,4 +66,8 @@ function contactAlert(type, message) {
   setTimeout(function () {
     contactFormStatus.innerHTML = "";
   }, 3000);
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { handleFormspreeSubmit, contactAlert };
 }
