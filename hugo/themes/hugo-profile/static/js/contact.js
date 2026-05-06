@@ -1,15 +1,23 @@
 async function handleFormspreeSubmit(event) {
   event.preventDefault();
-  var form = document.getElementById("contact-form");
-  var button = form.querySelector('button[type="submit"]');
-  var originalButtonText = button ? button.innerHTML : "Submit";
+  const form = document.getElementById("contact-form");
+  const data = new FormData(event.target);
 
-  if (button) {
-    button.disabled = true;
-    button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+  const submitBtn = form.querySelector('button[type="submit"]');
+  let originalBtnText = "";
+  if (submitBtn) {
+    originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`;
   }
 
-  var data = new FormData(event.target);
+  const restoreButton = () => {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
+  };
+
   fetch(event.target.action, {
     method: form.method,
     body: data,
@@ -18,39 +26,35 @@ async function handleFormspreeSubmit(event) {
     },
   })
     .then((response) => {
-      if (button) {
-        button.disabled = false;
-        button.innerHTML = originalButtonText;
-      }
+      restoreButton();
       if (response.ok) {
         contactAlert("success", "Thanks for your submission!");
         form.reset();
       } else {
         response.json().then((data) => {
-          var errMessage = data.errors;
-          for (var i = 0; i < errMessage.length; i++) {
+          const errMessage = data.errors;
+          for (let i = 0; i < errMessage.length; i++) {
             contactAlert("danger", errMessage[i].message);
           }
         });
       }
     })
     .catch((error) => {
-      if (button) {
-        button.disabled = false;
-        button.innerHTML = originalButtonText;
-      }
+      restoreButton();
       contactAlert("danger", "Oops! There was a problem submitting your form");
     });
 }
 
 function contactAlert(type, message) {
   var contactFormStatus = document.getElementById("contact-form-status");
+  var icon = type === "success" ? "check-circle-fill" : "exclamation-triangle-fill";
+  var ariaLabel = type === "success" ? "Success:" : "Error:";
   var alert = `<div class="alert alert-${type} d-flex align-items-center" role="alert">
-                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
-                        <use xlink:href="#check-circle-fill" />
+                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="${ariaLabel}">
+                        <use xlink:href="#${icon}" />
                     </svg>
                     <div>${message}</div>
-                    <button type="button" class="btn-close ms-auto" aria-label="Close alert" data-bs-dismiss="alert"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`;
   contactFormStatus.innerHTML = alert;
 
@@ -58,4 +62,8 @@ function contactAlert(type, message) {
   setTimeout(function () {
     contactFormStatus.innerHTML = "";
   }, 3000);
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { handleFormspreeSubmit, contactAlert };
 }
