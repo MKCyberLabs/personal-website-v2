@@ -46,13 +46,15 @@ async function handleFormspreeSubmit(event) {
 }
 
 function contactAlert(type, message) {
-  const contactFormStatus = document.getElementById("contact-form-status");
-  const alert = `<div class="alert alert-${type} d-flex align-items-center" role="alert">
-                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
-                        <use xlink:href="#check-circle-fill" />
+  var contactFormStatus = document.getElementById("contact-form-status");
+  var icon = type === "success" ? "check-circle-fill" : "exclamation-triangle-fill";
+  var ariaLabel = type === "success" ? "Success:" : "Error:";
+  var alert = `<div class="alert alert-${type} d-flex align-items-center" role="alert">
+                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="${ariaLabel}">
+                        <use xlink:href="#${icon}" />
                     </svg>
                     <div>${message}</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close alert"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`;
   contactFormStatus.innerHTML = alert;
 
