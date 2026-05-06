@@ -42,6 +42,10 @@ async function handleFormspreeSubmit(event) {
     .catch((error) => {
       restoreButton();
       contactAlert("danger", "Oops! There was a problem submitting your form");
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalButtonText;
     });
 }
 
