@@ -72,6 +72,7 @@ async function performSearch(evt) {
       searchResultsContainer.innerHTML = ""; // Clear previous results
 
       if (searchResults.length > 0) {
+        const fragment = document.createDocumentFragment();
         searchResults.forEach((item) => {
           if (!item.permalink || !isValidUrl(item.permalink)) {
             console.warn("Skipping invalid search result:", item);
@@ -97,8 +98,9 @@ async function performSearch(evt) {
           contentDiv.appendChild(description);
           link.appendChild(contentDiv);
           card.appendChild(link);
-          searchResultsContainer.appendChild(card);
+          fragment.appendChild(card);
         });
+        searchResultsContainer.appendChild(fragment);
       } else {
         const noResultsMessage = document.createElement("p");
         noResultsMessage.className = "text-center py-3";
