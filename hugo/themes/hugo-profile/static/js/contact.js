@@ -44,8 +44,10 @@ async function handleFormspreeSubmit(event) {
       contactAlert("danger", "Oops! There was a problem submitting your form");
     })
     .finally(() => {
-      submitButton.disabled = false;
-      submitButton.innerHTML = originalButtonText;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
     });
 }
 
@@ -58,7 +60,7 @@ function contactAlert(type, message) {
                         <use xlink:href="#${icon}" />
                     </svg>
                     <div>${message}</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close alert"></button>
                 </div>`;
   contactFormStatus.innerHTML = alert;
 
