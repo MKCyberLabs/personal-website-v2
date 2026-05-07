@@ -33,3 +33,7 @@
 ## 2024-05-05 - Interactive Elements and Form Accessibility
 **Learning:** Using `<div>` elements with `role="tab"` without explicit `tabindex="0"` breaks keyboard navigation for tabs.
 **Action:** Always use native `<button type="button">` for interactive tab controls to inherit focus and keyboard events.
+
+## 2024-05-07 - Descriptive alt text for profile images
+**Learning:** Images with empty `alt=""` attributes are ignored by screen readers, which is problematic for profile or hero images that provide context about the person.
+**Action:** Always provide descriptive `alt` text for images, especially when they represent the user or key content.
