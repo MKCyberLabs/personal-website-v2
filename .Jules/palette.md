@@ -33,3 +33,7 @@
 ## 2024-05-05 - Interactive Elements and Form Accessibility
 **Learning:** Using `<div>` elements with `role="tab"` without explicit `tabindex="0"` breaks keyboard navigation for tabs.
 **Action:** Always use native `<button type="button">` for interactive tab controls to inherit focus and keyboard events.
+
+## 2024-05-06 - Fulfilling UI Promises with Keyboard Shortcuts
+**Learning:** The UI placeholder "Ctrl + k to Search..." set an expectation for keyboard navigation that wasn't functioning. Users notice when UI promises are broken, leading to friction. Fulfilling these promises builds trust and significantly improves keyboard accessibility.
+**Action:** Always verify that keyboard shortcuts advertised in the UI (like placeholders or tooltips) are actually implemented and functional. Added document-level listeners for Ctrl+K/Cmd+K to focus search and Esc to dismiss it.

@@ -121,3 +121,31 @@ async function performSearch(evt) {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { isValidUrl, encodeHTML };
 }
+
+// Keyboard shortcuts for search
+if (typeof document !== "undefined") {
+  document.addEventListener("keydown", function(event) {
+    // Focus search on Ctrl+K or Cmd+K
+    if ((event.ctrlKey || event.metaKey) && (event.key === "k" || event.code === "KeyK")) {
+      event.preventDefault();
+      const searchInputs = document.querySelectorAll("#search");
+      for (let input of searchInputs) {
+        if (input.offsetParent !== null) { // Check if visible
+          input.focus();
+          break;
+        }
+      }
+    }
+
+    // Close search on Escape
+    if (event.key === "Escape" || event.code === "Escape") {
+      if (document.activeElement && document.activeElement.id === "search") {
+        document.activeElement.blur();
+      }
+      const searchContent = document.getElementById("search-content");
+      const searchResults = document.getElementById("search-results");
+      if (searchContent) searchContent.style.display = "none";
+      if (searchResults) searchResults.innerHTML = "";
+    }
+  });
+}
