@@ -37,3 +37,7 @@
 ## 2024-05-07 - Descriptive alt text for profile images
 **Learning:** Images with empty `alt=""` attributes are ignored by screen readers, which is problematic for profile or hero images that provide context about the person.
 **Action:** Always provide descriptive `alt` text for images, especially when they represent the user or key content.
+
+## 2024-06-05 - Search Keyboard Shortcuts
+**Learning:** Providing keyboard shortcuts like `Ctrl+K`/`Cmd+K` to focus a search input and `Escape` to dismiss it greatly enhances keyboard accessibility and power-user UX. When placeholder text advertises a shortcut, the functionality must be present.
+**Action:** Always implement global document-level `keydown` event listeners to support advertised keyboard shortcuts, ensuring proper focus management and dismissal logic.

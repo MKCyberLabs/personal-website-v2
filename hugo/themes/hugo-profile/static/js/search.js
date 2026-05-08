@@ -113,9 +113,41 @@ async function performSearch(evt) {
       console.error("Error fetching search data:", error);
     }
   } else {
+    const searchContent = document.getElementById("search-content");
+    if (searchContent) searchContent.style.display = "none";
+    const searchResults = document.getElementById("search-results");
+    if (searchResults) searchResults.innerHTML = "";
+  }
+}
+
+
+// Keyboard shortcut support
+if (typeof document !== "undefined") {
+  document.addEventListener("keydown", (event) => {
+  // Focus search on Ctrl+K or Cmd+K
+  if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+    event.preventDefault();
+    const searchInputs = document.querySelectorAll("#search");
+    // Find the visible search input
+    for (const input of searchInputs) {
+      if (input.offsetParent !== null) { // Simple check for visibility
+        input.focus();
+        break;
+      }
+    }
+  }
+
+  // Dismiss search on Escape
+  if (event.key === "Escape") {
+    const searchInputs = document.querySelectorAll("#search");
+    searchInputs.forEach(input => {
+      input.blur();
+      input.value = "";
+    });
     document.getElementById("search-content").style.display = "none";
     document.getElementById("search-results").innerHTML = "";
   }
+});
 }
 
 if (typeof module !== "undefined" && module.exports) {
