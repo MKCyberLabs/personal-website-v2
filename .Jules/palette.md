@@ -37,3 +37,7 @@
 ## 2024-05-07 - Descriptive alt text for profile images
 **Learning:** Images with empty `alt=""` attributes are ignored by screen readers, which is problematic for profile or hero images that provide context about the person.
 **Action:** Always provide descriptive `alt` text for images, especially when they represent the user or key content.
+
+## 2024-06-01 - Keyboard Accessibility for Bootstrap Tooltips
+**Learning:** Bootstrap tooltips attached to non-interactive elements (like `<span>` for info icons) are inaccessible to keyboard users and screen readers because they lack focusability and semantic meaning.
+**Action:** Always add `tabindex="0"`, `role="button"`, and a descriptive `aria-label` to non-interactive elements that trigger tooltips to ensure they are focusable and semantically meaningful for assistive technologies.

@@ -62,6 +62,9 @@
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
                                             data-bs-original-title={{ .info.content | default (print "Working as a " .job " at " .company ) }}
+                                            tabindex="0"
+                                            role="button"
+                                            aria-label='{{ .info.content | default (print "Working as a " .job " at " .company ) }}'
                                         >
                                             <i class="fas fa-info-circle fa-xs"></i>
                                         </span>
@@ -101,6 +104,9 @@
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
                                             data-bs-original-title={{ .info.content | default (print "Worked as a " .job " at " .company ) }}
+                                            tabindex="0"
+                                            role="button"
+                                            aria-label='{{ .info.content | default (print "Worked as a " .job " at " .company ) }}'
                                         >
                                             <i class="fas fa-info-circle fa-xs"></i>
                                         </span>
