@@ -23,7 +23,7 @@
             class="btn social-icon"
             aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
         >
-            <img src="{{ .icon }}">
+            <img src="{{ .icon }}" alt="">
         </a>
     </span>
     {{ end }}

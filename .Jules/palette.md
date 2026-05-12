@@ -34,6 +34,9 @@
 **Learning:** Using `<div>` elements with `role="tab"` without explicit `tabindex="0"` breaks keyboard navigation for tabs.
 **Action:** Always use native `<button type="button">` for interactive tab controls to inherit focus and keyboard events.
 
+## 2024-05-06 - Fulfilling UI Promises with Keyboard Shortcuts
+**Learning:** The UI placeholder "Ctrl + k to Search..." set an expectation for keyboard navigation that wasn't functioning. Users notice when UI promises are broken, leading to friction. Fulfilling these promises builds trust and significantly improves keyboard accessibility.
+**Action:** Always verify that keyboard shortcuts advertised in the UI (like placeholders or tooltips) are actually implemented and functional. Added document-level listeners for Ctrl+K/Cmd+K to focus search and Esc to dismiss it.
 ## 2024-05-07 - Descriptive alt text for profile images
 **Learning:** Images with empty `alt=""` attributes are ignored by screen readers, which is problematic for profile or hero images that provide context about the person.
 **Action:** Always provide descriptive `alt` text for images, especially when they represent the user or key content.
@@ -41,3 +44,10 @@
 ## 2024-06-01 - Keyboard Accessibility for Bootstrap Tooltips
 **Learning:** Bootstrap tooltips attached to non-interactive elements (like `<span>` for info icons) are inaccessible to keyboard users and screen readers because they lack focusability and semantic meaning.
 **Action:** Always add `tabindex="0"`, `role="button"`, and a descriptive `aria-label` to non-interactive elements that trigger tooltips to ensure they are focusable and semantically meaningful for assistive technologies.
+## 2024-05-30 - Interactive Tooltip Accessibility
+**Learning:** Tooltips attached to non-interactive elements like `<span>` cannot be accessed via keyboard navigation, hiding their information from keyboard-only users.
+**Action:** Always add `tabindex="0"` and `role="button"` (along with a descriptive `aria-label`) to `<span>` or `<div>` elements that trigger tooltips, ensuring they are reachable in the tab order and announced correctly by screen readers.
+
+## 2024-06-05 - Search Keyboard Shortcuts
+**Learning:** Providing keyboard shortcuts like `Ctrl+K`/`Cmd+K` to focus a search input and `Escape` to dismiss it greatly enhances keyboard accessibility and power-user UX. When placeholder text advertises a shortcut, the functionality must be present.
+**Action:** Always implement global document-level `keydown` event listeners to support advertised keyboard shortcuts, ensuring proper focus management and dismissal logic.
