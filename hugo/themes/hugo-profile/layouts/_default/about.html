@@ -40,7 +40,7 @@
                                 {{ range .Params.socialLinks.customIcons }}
                                 <li class="list-inline-item text-center">
                                     <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="img-icon" aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'>
-                                        <img src="{{ .icon }}">
+                                        <img src="{{ .icon }}" alt="">
                                     </a>
                                 </li>
                                 {{ end }}
