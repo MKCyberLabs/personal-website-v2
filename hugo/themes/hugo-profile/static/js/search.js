@@ -25,6 +25,8 @@ function searchOnChange(evt) {
 
 async function performSearch(evt) {
   let searchQuery = evt.target.value.trim().toLowerCase();
+  const searchContentEle = document.getElementById("search-content");
+  const searchResultsContainer = document.getElementById("search-results");
 
   if (searchQuery !== "") {
     const searchButtonEle = document.querySelectorAll("#search");
@@ -37,16 +39,18 @@ async function performSearch(evt) {
     let searchButtonPosition;
     if (window.innerWidth > 768) {
       searchButtonPosition = searchButtonEle[0].getBoundingClientRect();
-      document.getElementById("search-content").style.width = "500px";
+      if (searchContentEle) searchContentEle.style.width = "500px";
     } else {
       searchButtonPosition = searchButtonEle[1].getBoundingClientRect();
-      document.getElementById("search-content").style.width = "300px";
+      if (searchContentEle) searchContentEle.style.width = "300px";
     }
 
-    document.getElementById("search-content").style.top =
-      searchButtonPosition.top + 50 + "px";
-    document.getElementById("search-content").style.left =
-      searchButtonPosition.left + "px";
+    if (searchContentEle) {
+      searchContentEle.style.top =
+        searchButtonPosition.top + 50 + "px";
+      searchContentEle.style.left =
+        searchButtonPosition.left + "px";
+    }
 
     try {
       let response = await fetch("/index.json");
@@ -68,8 +72,7 @@ async function performSearch(evt) {
         );
       });
 
-      const searchResultsContainer = document.getElementById("search-results");
-      searchResultsContainer.innerHTML = ""; // Clear previous results
+      if (searchResultsContainer) searchResultsContainer.innerHTML = ""; // Clear previous results
 
       if (searchResults.length > 0) {
         const fragment = document.createDocumentFragment();
@@ -100,23 +103,21 @@ async function performSearch(evt) {
           card.appendChild(link);
           fragment.appendChild(card);
         });
-        searchResultsContainer.appendChild(fragment);
+        if (searchResultsContainer) searchResultsContainer.appendChild(fragment);
       } else {
         const noResultsMessage = document.createElement("p");
         noResultsMessage.className = "text-center py-3";
         noResultsMessage.textContent = `No results found for "${searchQuery}"`;
-        searchResultsContainer.appendChild(noResultsMessage);
+        if (searchResultsContainer) searchResultsContainer.appendChild(noResultsMessage);
       }
 
-      document.getElementById("search-content").style.display = "block";
+      if (searchContentEle) searchContentEle.style.display = "block";
     } catch (error) {
       console.error("Error fetching search data:", error);
     }
   } else {
-    const searchContent = document.getElementById("search-content");
-    if (searchContent) searchContent.style.display = "none";
-    const searchResults = document.getElementById("search-results");
-    if (searchResults) searchResults.innerHTML = "";
+    if (searchContentEle) searchContentEle.style.display = "none";
+    if (searchResultsContainer) searchResultsContainer.innerHTML = "";
   }
 }
 
@@ -152,4 +153,32 @@ if (typeof document !== "undefined") {
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { isValidUrl, encodeHTML };
+}
+
+// Keyboard shortcuts for search
+if (typeof document !== "undefined") {
+  document.addEventListener("keydown", function(event) {
+    // Focus search on Ctrl+K or Cmd+K
+    if ((event.ctrlKey || event.metaKey) && (event.key === "k" || event.code === "KeyK")) {
+      event.preventDefault();
+      const searchInputs = document.querySelectorAll("#search");
+      for (let input of searchInputs) {
+        if (input.offsetParent !== null) { // Check if visible
+          input.focus();
+          break;
+        }
+      }
+    }
+
+    // Close search on Escape
+    if (event.key === "Escape" || event.code === "Escape") {
+      if (document.activeElement && document.activeElement.id === "search") {
+        document.activeElement.blur();
+      }
+      const searchContent = document.getElementById("search-content");
+      const searchResults = document.getElementById("search-results");
+      if (searchContent) searchContent.style.display = "none";
+      if (searchResults) searchResults.innerHTML = "";
+    }
+  });
 }
