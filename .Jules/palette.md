@@ -51,3 +51,7 @@
 ## 2024-06-05 - Search Keyboard Shortcuts
 **Learning:** Providing keyboard shortcuts like `Ctrl+K`/`Cmd+K` to focus a search input and `Escape` to dismiss it greatly enhances keyboard accessibility and power-user UX. When placeholder text advertises a shortcut, the functionality must be present.
 **Action:** Always implement global document-level `keydown` event listeners to support advertised keyboard shortcuts, ensuring proper focus management and dismissal logic.
+
+## 2024-06-11 - Properly Quoting Tooltip Attributes
+**Learning:** Tooltips powered by `data-bs-original-title` that inject Hugo template strings with spaces must have quotes around the attribute value, otherwise the browser misinterprets the space as a new attribute. Furthermore, redundant semantic attributes (`tabindex="0"`, `role="button"`) should be removed to keep the DOM clean.
+**Action:** Always wrap Hugo template variables injected into HTML attributes with single quotes (e.g. `data-bs-original-title='{{ .text }}'`) to prevent attribute splitting.
