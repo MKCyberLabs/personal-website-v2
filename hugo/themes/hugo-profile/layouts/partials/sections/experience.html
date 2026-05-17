@@ -58,13 +58,10 @@
                                     {{ if .info.enable | default true }}
                                     <span class="p-2">
                                         <span
-                                            tabindex="0"
-                                            role="button"
-                                            aria-label="Information about {{ .job }} at {{ .company }}"
                                             style="cursor: pointer;"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            data-bs-original-title={{ .info.content | default (print "Working as a " .job " at " .company ) }}
+                                            data-bs-original-title='{{ .info.content | default (print "Working as a " .job " at " .company ) }}'
                                             tabindex="0"
                                             role="button"
                                             aria-label='{{ .info.content | default (print "Working as a " .job " at " .company ) }}'
@@ -103,13 +100,10 @@
                                     {{ if .info.enable | default true }}
                                     <span class="p-2">
                                         <span
-                                            tabindex="0"
-                                            role="button"
-                                            aria-label="Information about {{ .job }} at {{ .company }}"
                                             style="cursor: pointer;"
                                             data-bs-toggle="tooltip"
                                             data-bs-placement="top"
-                                            data-bs-original-title={{ .info.content | default (print "Worked as a " .job " at " .company ) }}
+                                            data-bs-original-title='{{ .info.content | default (print "Worked as a " .job " at " .company ) }}'
                                             tabindex="0"
                                             role="button"
                                             aria-label='{{ .info.content | default (print "Worked as a " .job " at " .company ) }}'
