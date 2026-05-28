@@ -9,7 +9,7 @@
             class="btn social-icon"
             aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
         >
-            <i class="{{ .icon }}"></i>
+            <i class="{{ .icon }}" aria-hidden="true"></i>
         </a>
     </span>
     {{ end }}
