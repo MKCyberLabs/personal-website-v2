@@ -32,6 +32,7 @@
                                   {{ end }}'
                             target="_blank" rel="noopener noreferrer"
                             class="btn"
+                            aria-label='{{ .Site.Params.contact.btnName | default "Get in Touch" }}'
                         >
                             {{ .Site.Params.contact.btnName | default "Get in Touch" }}
                         </a>

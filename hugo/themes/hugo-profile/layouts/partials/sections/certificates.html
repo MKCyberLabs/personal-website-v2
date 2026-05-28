@@ -31,7 +31,7 @@
                         {{ end }}
                         {{ if .featured }}
                         <span class="float-end">
-                            <a class="btn btn-sm" href="{{ .featured.link }}" target="_blank" rel="noopener noreferrer">
+                            <a class="btn btn-sm" href="{{ .featured.link }}" target="_blank" rel="noopener noreferrer" aria-label='{{ .featured.name }} for {{ .title }}'>
                                 {{ .featured.name }}
                             </a>
                         </span>
@@ -68,7 +68,7 @@
                         </span>
                         {{ end }}
                         <span class="float-end">
-                            <a class="btn btn-sm" href="{{ .RelPermalink }}">
+                            <a class="btn btn-sm" href="{{ .RelPermalink }}" aria-label='{{ print "Know more about " .Title }}'>
                                 Know more
                             </a>
                         </span>
