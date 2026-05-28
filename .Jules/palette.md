@@ -58,3 +58,7 @@
 ## 2024-05-18 - Missing ARIA labels and titles on icon-only project/certificate links
 **Learning:** In the Hugo-Profile theme, icon-only utility buttons or external links (e.g., social links inside the project list or certificates section) often lack explicit `aria-label` or `title` attributes. This makes them invisible or confusing to screen readers and hides visual context from mouse users (no tooltip).
 **Action:** When adding or auditing lists of links that are represented solely by an icon (such as a FontAwesome class `<i>`), always ensure there is an accessible fallback name on the anchor tag. Use template logic like `aria-label='{{ .title | default (print "Project link for " .url) }}'` to gracefully handle missing configuration while guaranteeing accessibility.
+
+## 2024-05-24 - Explicit Form Labels vs Placeholders
+**Learning:** Relying solely on placeholders for form fields is a UX and accessibility anti-pattern. Placeholders disappear when a user begins typing, which can cause loss of context. Furthermore, explicit `<label>` elements provide better support for assistive technologies and increase the clickable area of the input.
+**Action:** Always provide visible, explicitly linked `<label>` elements (using `for` and `id`) for form inputs, and include clear visual indicators for required fields to support cognitive and visual accessibility.
