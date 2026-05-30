@@ -13,7 +13,7 @@
                         <form id="contact-form" action="https://formspree.io/f/{{ .Site.Params.contact.formspree.formId }}" onsubmit="handleFormspreeSubmit(event)" method="POST" class="col-md-7">
                             <div class="form-group pt-3">
                                 <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                <input id="email" type="email" class="form-control" name="email" required="true" aria-label="Email" placeholder='{{ .Site.Params.contact.formspree.emailCaption | emojify | default "Enter your email" }}'>
+                                <input type="email" id="email" class="form-control" name="email" required="true" aria-label="Email" placeholder='{{ .Site.Params.contact.formspree.emailCaption | emojify | default "Enter your email" }}'>
                             </div>
                             <div class="form-group pt-3">
                                 <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
@@ -34,6 +34,7 @@
                                   {{ end }}'
                             target="_blank" rel="noopener noreferrer"
                             class="btn"
+                            aria-label='{{ .Site.Params.contact.btnName | default "Get in Touch" }}'
                         >
                             {{ .Site.Params.contact.btnName | default "Get in Touch" }}
                         </a>
