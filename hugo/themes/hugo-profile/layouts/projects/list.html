@@ -34,13 +34,13 @@
                 <div class="card-footer py-3">
                     {{ range .Params.links }}
                     <span class="m-1 mx-2">
-                        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label='{{ .name | default (print "Link to " .url) }}' title='{{ .name | default (print "Link to " .url) }}'>
-                            <i class="{{ .icon }}"></i>
+                        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label='{{ .title | default (print "Project link for " .url) }}' title='{{ .title | default (print "Project link for " .url) }}'>
+                            <i class="{{ .icon }}" aria-hidden="true"></i>
                         </a>
                     </span>
                     {{ end }}
                     <span class="float-end">
-                        <a class="btn btn-sm" href="{{ .RelPermalink }}">
+                        <a class="btn btn-sm" href="{{ .RelPermalink }}" aria-label='{{ print "Know more about " .Title }}'>
                             Know more
                         </a>
                     </span>

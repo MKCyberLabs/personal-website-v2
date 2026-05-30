@@ -12,10 +12,12 @@
                     <div class="row justify-content-center">
                         <form id="contact-form" action="https://formspree.io/f/{{ .Site.Params.contact.formspree.formId }}" onsubmit="handleFormspreeSubmit(event)" method="POST" class="col-md-7">
                             <div class="form-group pt-3">
-                                <input type="email" class="form-control" name="email" required="true" aria-label="Email" placeholder='{{ .Site.Params.contact.formspree.emailCaption | emojify | default "Enter your email" }}'>
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" id="email" class="form-control" name="email" required="true" aria-label="Email" placeholder='{{ .Site.Params.contact.formspree.emailCaption | emojify | default "Enter your email" }}'>
                             </div>
                             <div class="form-group pt-3">
-                                <textarea class="form-control" name="message" required="true" aria-label="Message" placeholder='{{ .Site.Params.contact.formspree.messageCaption | emojify | default "Enter your message" }}' rows="{{ .Site.Params.contact.formspree.messageRows | default 3 }}"></textarea>
+                                <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                                <textarea id="message" class="form-control" name="message" required="true" aria-label="Message" placeholder='{{ .Site.Params.contact.formspree.messageCaption | emojify | default "Enter your message" }}' rows="{{ .Site.Params.contact.formspree.messageRows | default 3 }}"></textarea>
                             </div>
                             <div class="form-group text-center pt-3">
                                 <button type="submit" class="btn">{{ .Site.Params.contact.btnName | default "Get in Touch" }}</button>
@@ -32,6 +34,7 @@
                                   {{ end }}'
                             target="_blank" rel="noopener noreferrer"
                             class="btn"
+                            aria-label='{{ .Site.Params.contact.btnName | default "Get in Touch" }}'
                         >
                             {{ .Site.Params.contact.btnName | default "Get in Touch" }}
                         </a>
