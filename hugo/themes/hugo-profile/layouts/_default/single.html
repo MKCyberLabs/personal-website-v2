@@ -75,22 +75,22 @@
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
                   <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Site.Params.hostName }}{{ .Permalink | absURL }}" aria-label="Share on LinkedIn" title="Share on LinkedIn">
-                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
                   <a target="_blank" href="https://twitter.com/share?text={{ .Title }}&url={{ .Site.Params.hostName }}{{ .Permalink | absURL }}" aria-label="Share on Twitter" title="Share on Twitter">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
                   <a target="_blank" href="https://api.whatsapp.com/send?text={{ .Title }}: {{ .Site.Params.hostName }}{{ .Permalink | absURL }}" aria-label="Share on WhatsApp" title="Share on WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
                   <a target="_blank" href='mailto:?subject={{ .Title }}&amp;body={{ .Site.Params.terms.emailText | default "Check out this site" }} {{ .Site.Params.hostName }}{{ .Permalink | absURL }}' aria-label="Share via Email" title="Share via Email">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -107,7 +107,7 @@
     </div>
   </div>
   <button class="p-2 px-3" onclick="topFunction()" id="topScroll" aria-label="Scroll to top" title="Scroll to top">
-    <i class="fas fa-angle-up"></i>
+    <i class="fas fa-angle-up" aria-hidden="true"></i>
   </button>
 </section>
 

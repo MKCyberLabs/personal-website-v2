@@ -51,6 +51,9 @@
 ## 2024-06-05 - Search Keyboard Shortcuts
 **Learning:** Providing keyboard shortcuts like `Ctrl+K`/`Cmd+K` to focus a search input and `Escape` to dismiss it greatly enhances keyboard accessibility and power-user UX. When placeholder text advertises a shortcut, the functionality must be present.
 **Action:** Always implement global document-level `keydown` event listeners to support advertised keyboard shortcuts, ensuring proper focus management and dismissal logic.
+## 2024-05-28 - Dynamic ARIA Labels for Icon Links
+**Learning:** When adding `aria-label` or `title` attributes to dynamically generated icon-only links (e.g., using `range`), never hardcode generic values like "Link". Always derive descriptive context from available template variables, such as `{{ .name | default (print "Link to " .url) }}`, to prevent unhelpful and repetitive screen reader announcements.
+**Action:** Always inspect the data structure driving a loop to find appropriate descriptive names for ARIA labels before falling back to generic strings.
 
 ## 2024-06-11 - Properly Quoting Tooltip Attributes
 **Learning:** Tooltips powered by `data-bs-original-title` that inject Hugo template strings with spaces must have quotes around the attribute value, otherwise the browser misinterprets the space as a new attribute. Furthermore, redundant semantic attributes (`tabindex="0"`, `role="button"`) should be removed to keep the DOM clean.
@@ -62,3 +65,9 @@
 ## 2024-05-30 - Contextual aria-labels for generic links
 **Learning:** Generic link text like 'Read' or 'Know more' lacks context for screen reader users when navigated out of context (e.g., using a screen reader's links list).
 **Action:** Always include a contextual `aria-label` (e.g., `aria-label='Know more about {{ .Title }}'`) to provide clarity for screen reader users on generic links.
+## 2024-05-24 - Explicit Form Labels vs Placeholders
+**Learning:** Relying solely on placeholders for form fields is a UX and accessibility anti-pattern. Placeholders disappear when a user begins typing, which can cause loss of context. Furthermore, explicit `<label>` elements provide better support for assistive technologies and increase the clickable area of the input.
+**Action:** Always provide visible, explicitly linked `<label>` elements (using `for` and `id`) for form inputs, and include clear visual indicators for required fields to support cognitive and visual accessibility.
+## 2024-06-15 - Missing ARIA context on generic "Know more" and "Read" buttons
+**Learning:** In list views (like projects, certificates, or blog posts), generic link text like "Know more" or "Read" provides insufficient context for screen reader users when navigated out of context (e.g., via a screen reader's elements list).
+**Action:** Always add descriptive `aria-label` attributes to generic "Read more" or "Know more" buttons that include the title of the associated item (e.g., `aria-label='Know more about {{ .Title }}'`).

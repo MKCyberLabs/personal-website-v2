@@ -3,13 +3,11 @@
     {{ $iconName := .icon | replaceRE "^(?:fab|fas|far|fa) fa-(.*)$" "$1" | title | replaceRE "Github" "GitHub" | replaceRE "Linkedin" "LinkedIn" }}
     <span class="px-1">
         <a href="{{ .url }}"
-            aria-label="{{ $iconName }}"
-            title="{{ $iconName }}"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
-            aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
+            aria-label='{{ .title | default $iconName }}' title='{{ .title | default $iconName }}'
         >
-            <i class="{{ .icon }}"></i>
+            <i class="{{ .icon }}" aria-hidden="true"></i>
         </a>
     </span>
     {{ end }}
@@ -17,11 +15,9 @@
     {{ range .Site.Params.hero.socialLinks.customIcons }}
     <span class="px-1">
         <a href="{{ .url }}"
-            aria-label="Social Link"
-            title="Social Link"
             {{ if not (hasPrefix .url "#") }} target="_blank" rel="noopener noreferrer" {{ end }}
             class="btn social-icon"
-            aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'
+            aria-label='{{ .title | default "Social Link" }}' title='{{ .title | default "Social Link" }}'
         >
             <img src="{{ .icon }}" alt="">
         </a>
