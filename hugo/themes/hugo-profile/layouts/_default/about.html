@@ -32,7 +32,7 @@
                                 {{ range .Params.socialLinks.fontAwesomeIcons }}
                                 <li class="list-inline-item text-center">
                                     <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label='{{ .title | default (print "Social link for " .url) }}' title='{{ .title | default (print "Social link for " .url) }}'>
-                                        <i class="{{ .icon }}"></i>
+                                        <i class="{{ .icon }}" aria-hidden="true"></i>
                                     </a>
                                 </li>
                                 {{ end }}
@@ -61,7 +61,7 @@
         </div>
     </div>
     <button class="p-2 px-3" onclick="topFunction()" id="topScroll" aria-label="Scroll to top" title="Scroll to top">
-        <i class="fas fa-angle-up"></i>
+        <i class="fas fa-angle-up" aria-hidden="true"></i>
     </button>
 </section>
 
