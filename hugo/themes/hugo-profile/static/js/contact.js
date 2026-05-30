@@ -26,7 +26,6 @@ async function handleFormspreeSubmit(event) {
     },
   })
     .then((response) => {
-      restoreButton();
       if (response.ok) {
         contactAlert("success", "Thanks for your submission!");
         form.reset();
@@ -40,14 +39,10 @@ async function handleFormspreeSubmit(event) {
       }
     })
     .catch((error) => {
-      restoreButton();
       contactAlert("danger", "Oops! There was a problem submitting your form");
     })
     .finally(() => {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
-      }
+      restoreButton();
     });
 }
 
