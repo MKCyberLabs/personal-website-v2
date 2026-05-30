@@ -51,6 +51,9 @@
 ## 2024-06-05 - Search Keyboard Shortcuts
 **Learning:** Providing keyboard shortcuts like `Ctrl+K`/`Cmd+K` to focus a search input and `Escape` to dismiss it greatly enhances keyboard accessibility and power-user UX. When placeholder text advertises a shortcut, the functionality must be present.
 **Action:** Always implement global document-level `keydown` event listeners to support advertised keyboard shortcuts, ensuring proper focus management and dismissal logic.
+## 2024-05-28 - Dynamic ARIA Labels for Icon Links
+**Learning:** When adding `aria-label` or `title` attributes to dynamically generated icon-only links (e.g., using `range`), never hardcode generic values like "Link". Always derive descriptive context from available template variables, such as `{{ .name | default (print "Link to " .url) }}`, to prevent unhelpful and repetitive screen reader announcements.
+**Action:** Always inspect the data structure driving a loop to find appropriate descriptive names for ARIA labels before falling back to generic strings.
 
 ## 2024-06-11 - Properly Quoting Tooltip Attributes
 **Learning:** Tooltips powered by `data-bs-original-title` that inject Hugo template strings with spaces must have quotes around the attribute value, otherwise the browser misinterprets the space as a new attribute. Furthermore, redundant semantic attributes (`tabindex="0"`, `role="button"`) should be removed to keep the DOM clean.
