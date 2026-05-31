@@ -74,3 +74,6 @@
 ## 2024-06-15 - Missing ARIA context on generic "Know more" and "Read" buttons
 **Learning:** In list views (like projects, certificates, or blog posts), generic link text like "Know more" or "Read" provides insufficient context for screen reader users when navigated out of context (e.g., via a screen reader's elements list).
 **Action:** Always add descriptive `aria-label` attributes to generic "Read more" or "Know more" buttons that include the title of the associated item (e.g., `aria-label='Know more about {{ .Title }}'`).
+## 2024-06-16 - Dynamic and unique alt text for lists of images
+**Learning:** Hardcoding generic `alt` text (like `alt="Gallery image"` or `alt="Achievement image"`) across a list or gallery of images provides poor context and repetitive announcements for screen reader users.
+**Action:** Always use dynamic template variables (e.g., `{{ .title }}`) or, at a minimum, numbered sequences (e.g., `{{ print "Gallery image " (add $index 1) }}`) to ensure each image in a loop has unique and descriptive `alt` text.
