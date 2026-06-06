@@ -74,3 +74,7 @@
 ## 2024-06-15 - Missing ARIA context on generic "Know more" and "Read" buttons
 **Learning:** In list views (like projects, certificates, or blog posts), generic link text like "Know more" or "Read" provides insufficient context for screen reader users when navigated out of context (e.g., via a screen reader's elements list).
 **Action:** Always add descriptive `aria-label` attributes to generic "Read more" or "Know more" buttons that include the title of the associated item (e.g., `aria-label='Know more about {{ .Title }}'`).
+
+## 2024-06-25 - Improved Accessibility of Required Form Fields
+**Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers may announce them awkwardly (e.g., "star"). Hiding the asterisk and supplementing it with explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) ensures accurate accessibility announcements.
+**Action:** Hide the asterisk from screen readers using `aria-hidden="true"` and add a visually hidden "Required" span to improve the screen reader experience.
