@@ -74,3 +74,7 @@
 ## 2024-06-15 - Missing ARIA context on generic "Know more" and "Read" buttons
 **Learning:** In list views (like projects, certificates, or blog posts), generic link text like "Know more" or "Read" provides insufficient context for screen reader users when navigated out of context (e.g., via a screen reader's elements list).
 **Action:** Always add descriptive `aria-label` attributes to generic "Read more" or "Know more" buttons that include the title of the associated item (e.g., `aria-label='Know more about {{ .Title }}'`).
+
+## 2024-06-20 - Explicit Form Labels vs Placeholders and Accessibility
+**Learning:** Relying solely on placeholders for form fields is a UX and accessibility anti-pattern. Placeholders disappear when a user begins typing, which can cause loss of context. Furthermore, explicit `<label>` elements provide better support for assistive technologies and increase the clickable area of the input. In the header search, the inputs were missing explicit labels for screen readers.
+**Action:** Always provide visible, explicitly linked `<label>` elements (using `for` and `id`) for form inputs, and include clear visual indicators for required fields to support cognitive and visual accessibility. Removed redundant screen-reader announcements by keeping `aria-label="Search"` on inputs rather than adding an explicit `<label>`, since the native inputs use attributes appropriately. Also, removed redundant hidden `Required` spans on inputs that use the native `required` attribute, to prevent screen readers from announcing it twice.
