@@ -74,3 +74,7 @@
 ## 2024-06-15 - Missing ARIA context on generic "Know more" and "Read" buttons
 **Learning:** In list views (like projects, certificates, or blog posts), generic link text like "Know more" or "Read" provides insufficient context for screen reader users when navigated out of context (e.g., via a screen reader's elements list).
 **Action:** Always add descriptive `aria-label` attributes to generic "Read more" or "Know more" buttons that include the title of the associated item (e.g., `aria-label='Know more about {{ .Title }}'`).
+
+## 2024-06-20 - Descriptive alt text for lists of images
+**Learning:** In Hugo templates, when iterating through lists of images (e.g., using `range` for galleries or achievements), hardcoding generic `alt` attributes results in poor screen reader experience where all items sound the same.
+**Action:** Always use dynamic iteration variables (e.g., `{{ .title }}`) or an indexed counter (`{{ print "Image " (add $index 1) }}`) to ensure every image has a unique and descriptive accessible name.
