@@ -22,10 +22,10 @@
     </div>
     <div class="card-group p-4">
         <div class="row justify-content-center">
-            {{ range .Params.galleryImages }}
+            {{ range $index, $element := .Params.galleryImages }}
             <div class="col-md-4 p-0 m-0">
                 <div class="card p-0 m-0 border-0">
-                    <img class="w-100 {{if .Params.viewer | default true}}viewer-enabled-image{{end}}" height="280px" src="{{ .src }}" alt="Gallery image">
+                    <img class="w-100 {{if .Params.viewer | default true}}viewer-enabled-image{{end}}" height="280px" src="{{ .src }}" alt='{{ print "Gallery image " (add $index 1) }}'>
                 </div>
             </div>
             {{ end }}
