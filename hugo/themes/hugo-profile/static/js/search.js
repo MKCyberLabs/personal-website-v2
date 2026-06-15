@@ -22,7 +22,7 @@ let searchResultsContainer = null;
 
 function getSearchInputs() {
   if (!searchInputs || searchInputs.length === 0) {
-    searchInputs = document.querySelectorAll("#search");
+    searchInputs = document.querySelectorAll("#search-desktop, #search-mobile");
   }
   return searchInputs;
 }
