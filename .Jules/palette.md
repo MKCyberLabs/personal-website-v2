@@ -75,6 +75,9 @@
 **Learning:** In list views (like projects, certificates, or blog posts), generic link text like "Know more" or "Read" provides insufficient context for screen reader users when navigated out of context (e.g., via a screen reader's elements list).
 **Action:** Always add descriptive `aria-label` attributes to generic "Read more" or "Know more" buttons that include the title of the associated item (e.g., `aria-label='Know more about {{ .Title }}'`).
 
+## 2024-06-20 - Hide decorative required asterisks from screen readers
+**Learning:** When creating forms with visual 'required' indicators like asterisks, if the input already uses the native HTML `required` attribute, the screen reader will announce "required" automatically. Announcing the asterisk as well is redundant and causes clutter.
+**Action:** Hide the asterisk from screen readers using `aria-hidden="true"`. However, avoid supplementing it with explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) if the input already uses the native HTML `required` attribute, to prevent redundant screen reader announcements.
 ## 2024-06-15 - Hide visual required indicators from screen readers
 **Learning:** Visual required indicators like asterisks inside `<label>` elements are read aloud by screen readers (e.g., "Email star"), which is redundant and confusing when the associated input already has a native `required` attribute.
 **Action:** Always add `aria-hidden="true"` to visual required indicators (like `<span class="text-danger">*</span>`) to hide them from assistive technologies, relying on the native `required` attribute for semantic meaning.
