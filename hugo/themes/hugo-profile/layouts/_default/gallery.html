@@ -25,7 +25,7 @@
             {{ range $index, $element := .Params.galleryImages }}
             <div class="col-md-4 p-0 m-0">
                 <div class="card p-0 m-0 border-0">
-                    <img class="w-100 {{if $.Params.viewer | default true}}viewer-enabled-image{{end}}" height="280px" src="{{ $element.src }}" alt='{{ print "Gallery image " (add $index 1) }}'>
+                    <img class="w-100 {{if .Params.viewer | default true}}viewer-enabled-image{{end}}" height="280px" src="{{ .src }}" alt='{{ print "Gallery image " (add $index 1) }}'>
                 </div>
             </div>
             {{ end }}

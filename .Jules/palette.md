@@ -78,3 +78,25 @@
 ## 2024-06-20 - Descriptive alt text for lists of images
 **Learning:** In Hugo templates, when iterating through lists of images (e.g., using `range` for galleries or achievements), hardcoding generic `alt` attributes results in poor screen reader experience where all items sound the same.
 **Action:** Always use dynamic iteration variables (e.g., `{{ .title }}`) or an indexed counter (`{{ print "Image " (add $index 1) }}`) to ensure every image has a unique and descriptive accessible name.
+## 2024-06-20 - Explicit Form Labels vs Placeholders and Accessibility
+**Learning:** Relying solely on placeholders for form fields is a UX and accessibility anti-pattern. Placeholders disappear when a user begins typing, which can cause loss of context. Furthermore, explicit `<label>` elements provide better support for assistive technologies and increase the clickable area of the input. In the header search, the inputs were missing explicit labels for screen readers.
+**Action:** Always provide visible, explicitly linked `<label>` elements (using `for` and `id`) for form inputs, and include clear visual indicators for required fields to support cognitive and visual accessibility. Removed redundant screen-reader announcements by keeping `aria-label="Search"` on inputs rather than adding an explicit `<label>`, since the native inputs use attributes appropriately. Also, removed redundant hidden `Required` spans on inputs that use the native `required` attribute, to prevent screen readers from announcing it twice.
+## 2024-06-25 - Improved Accessibility of Required Form Fields
+**Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers may announce them awkwardly (e.g., "star"). Hiding the asterisk and supplementing it with explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) ensures accurate accessibility announcements.
+**Action:** Hide the asterisk from screen readers using `aria-hidden="true"` and add a visually hidden "Required" span to improve the screen reader experience.
+## 2024-07-20 - Accessible required field indicators
+**Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers may read the asterisk confusingly (e.g., "star"). Hiding the asterisk from screen readers and supplementing it with explicit visually hidden text ensures accurate and clear accessibility announcements.
+**Action:** Always hide visual required indicators using `aria-hidden="true"` and add an explicit `<span class="visually-hidden">Required</span>` for screen readers.
+
+## 2024-06-25 - Accessible required field indicators
+**Learning:** Visual 'required' indicators like asterisks (*) are often read aloud by screen readers as "star" or "asterisk", which can be confusing without context.
+**Action:** Always hide visual asterisks from screen readers using `aria-hidden="true"` and provide an explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) to ensure accurate accessibility announcements.
+## 2024-06-03 - [Accessible Required Form Indicators]
+**Learning:** Visual indicators like asterisks for required fields must be hidden from screen readers to avoid confusing announcements (e.g., "star").
+**Action:** Use `aria-hidden="true"` on the asterisk and supplement it with an explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) for screen readers.
+## 2024-06-01 - Hide visual asterisks from screen readers
+**Learning:** Visual "required" indicators like asterisks (<span class="text-danger">*</span>) are often announced as "star" or "asterisk" by screen readers, which is confusing or ignored.
+**Action:** Always add `aria-hidden="true"` to the visual asterisk and provide a visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) to explicitly state the requirement to screen reader users.
+## 2024-06-16 - Dynamic and unique alt text for lists of images
+**Learning:** Hardcoding generic `alt` text (like `alt="Gallery image"` or `alt="Achievement image"`) across a list or gallery of images provides poor context and repetitive announcements for screen reader users.
+**Action:** Always use dynamic template variables (e.g., `{{ .title }}`) or, at a minimum, numbered sequences (e.g., `{{ print "Gallery image " (add $index 1) }}`) to ensure each image in a loop has unique and descriptive `alt` text.
