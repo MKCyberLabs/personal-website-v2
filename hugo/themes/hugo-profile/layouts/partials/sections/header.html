@@ -62,7 +62,7 @@
 
             {{ if not (.Site.Params.navbar.disableSearch | default false) }}
                 <div>
-                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='{{ .Site.Params.navbar.searchPlaceholder | default "Ctrl + k to Search..."}}'
+                    <input id="search-desktop" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='{{ .Site.Params.navbar.searchPlaceholder | default "Ctrl + k to Search..."}}'
                         aria-label="Search" oninput="searchOnChange(event)">
                 </div>
             {{ end }}
@@ -81,7 +81,7 @@
                     {{ if not (.Site.Params.navbar.disableSearch | default false) }}
                         <li class="nav-item navbar-text d-block d-md-none">
                             <div class="nav-link">
-                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='{{ .Site.Params.navbar.searchPlaceholder | default "Ctrl + k to Search..."}}' aria-label="Search" oninput="searchOnChange(event)">
+                                <input id="search-mobile" autocomplete="off" class="form-control mr-sm-2" placeholder='{{ .Site.Params.navbar.searchPlaceholder | default "Ctrl + k to Search..."}}' aria-label="Search" oninput="searchOnChange(event)">
                             </div>
                         </li>
                     {{ end }}
@@ -150,6 +150,7 @@
                     <!-- Dropdown menu -->
                     <li class="nav-item navbar-text dropdown">
                         <a class="nav-link dropdown-toggle" href="{{ .URL }}" id="navbarDropdown" role="button"
+                            aria-label="{{ .Title | default .Name }}"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ .Title }}">
                             {{ .Name }}
                         </a>

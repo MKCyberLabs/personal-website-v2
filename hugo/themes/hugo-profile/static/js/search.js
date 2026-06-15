@@ -15,6 +15,32 @@ function isValidUrl(url) {
   }
 }
 
+// Cached DOM elements
+let searchInputs = null;
+let searchContentEle = null;
+let searchResultsContainer = null;
+
+function getSearchInputs() {
+  if (!searchInputs || searchInputs.length === 0) {
+    searchInputs = document.querySelectorAll("#search-desktop, #search-mobile");
+  }
+  return searchInputs;
+}
+
+function getSearchContentEle() {
+  if (!searchContentEle) {
+    searchContentEle = document.getElementById("search-content");
+  }
+  return searchContentEle;
+}
+
+function getSearchResultsContainer() {
+  if (!searchResultsContainer) {
+    searchResultsContainer = document.getElementById("search-results");
+  }
+  return searchResultsContainer;
+}
+
 let debounceTimeout;
 function searchOnChange(evt) {
   clearTimeout(debounceTimeout);
@@ -25,30 +51,30 @@ function searchOnChange(evt) {
 
 async function performSearch(evt) {
   let searchQuery = evt.target.value.trim().toLowerCase();
-  const searchContentEle = document.getElementById("search-content");
-  const searchResultsContainer = document.getElementById("search-results");
+  const contentEle = getSearchContentEle();
+  const resultsContainer = getSearchResultsContainer();
 
   if (searchQuery !== "") {
-    const searchButtonEle = document.querySelectorAll("#search");
+    const inputs = getSearchInputs();
 
-    if (searchButtonEle.length < 2) {
+    if (inputs.length < 2) {
       console.error("Search button elements missing!");
       return;
     }
 
     let searchButtonPosition;
     if (window.innerWidth > 768) {
-      searchButtonPosition = searchButtonEle[0].getBoundingClientRect();
-      if (searchContentEle) searchContentEle.style.width = "500px";
+      searchButtonPosition = inputs[0].getBoundingClientRect();
+      if (contentEle) contentEle.style.width = "500px";
     } else {
-      searchButtonPosition = searchButtonEle[1].getBoundingClientRect();
-      if (searchContentEle) searchContentEle.style.width = "300px";
+      searchButtonPosition = inputs[1].getBoundingClientRect();
+      if (contentEle) contentEle.style.width = "300px";
     }
 
-    if (searchContentEle) {
-      searchContentEle.style.top =
+    if (contentEle) {
+      contentEle.style.top =
         searchButtonPosition.top + 50 + "px";
-      searchContentEle.style.left =
+      contentEle.style.left =
         searchButtonPosition.left + "px";
     }
 
@@ -72,7 +98,7 @@ async function performSearch(evt) {
         );
       });
 
-      if (searchResultsContainer) searchResultsContainer.innerHTML = ""; // Clear previous results
+      if (resultsContainer) resultsContainer.innerHTML = ""; // Clear previous results
 
       if (searchResults.length > 0) {
         const fragment = document.createDocumentFragment();
@@ -103,21 +129,21 @@ async function performSearch(evt) {
           card.appendChild(link);
           fragment.appendChild(card);
         });
-        if (searchResultsContainer) searchResultsContainer.appendChild(fragment);
+        if (resultsContainer) resultsContainer.appendChild(fragment);
       } else {
         const noResultsMessage = document.createElement("p");
         noResultsMessage.className = "text-center py-3";
         noResultsMessage.textContent = `No results found for "${searchQuery}"`;
-        if (searchResultsContainer) searchResultsContainer.appendChild(noResultsMessage);
+        if (resultsContainer) resultsContainer.appendChild(noResultsMessage);
       }
 
-      if (searchContentEle) searchContentEle.style.display = "block";
+      if (contentEle) contentEle.style.display = "block";
     } catch (error) {
       console.error("Error fetching search data:", error);
     }
   } else {
-    if (searchContentEle) searchContentEle.style.display = "none";
-    if (searchResultsContainer) searchResultsContainer.innerHTML = "";
+    if (contentEle) contentEle.style.display = "none";
+    if (resultsContainer) resultsContainer.innerHTML = "";
   }
 }
 
@@ -125,60 +151,34 @@ async function performSearch(evt) {
 // Keyboard shortcut support
 if (typeof document !== "undefined") {
   document.addEventListener("keydown", (event) => {
-  // Focus search on Ctrl+K or Cmd+K
-  if ((event.ctrlKey || event.metaKey) && event.key === "k") {
-    event.preventDefault();
-    const searchInputs = document.querySelectorAll("#search");
-    // Find the visible search input
-    for (const input of searchInputs) {
-      if (input.offsetParent !== null) { // Simple check for visibility
-        input.focus();
-        break;
-      }
-    }
-  }
-
-  // Dismiss search on Escape
-  if (event.key === "Escape") {
-    const searchInputs = document.querySelectorAll("#search");
-    searchInputs.forEach(input => {
-      input.blur();
-      input.value = "";
-    });
-    document.getElementById("search-content").style.display = "none";
-    document.getElementById("search-results").innerHTML = "";
-  }
-});
-}
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = { isValidUrl, encodeHTML };
-}
-
-// Keyboard shortcuts for search
-if (typeof document !== "undefined") {
-  document.addEventListener("keydown", function(event) {
     // Focus search on Ctrl+K or Cmd+K
     if ((event.ctrlKey || event.metaKey) && (event.key === "k" || event.code === "KeyK")) {
       event.preventDefault();
-      const searchInputs = document.querySelectorAll("#search");
-      for (let input of searchInputs) {
-        if (input.offsetParent !== null) { // Check if visible
+      const inputs = getSearchInputs();
+      // Find the visible search input
+      for (const input of inputs) {
+        if (input.offsetParent !== null) { // Simple check for visibility
           input.focus();
           break;
         }
       }
     }
 
-    // Close search on Escape
+    // Dismiss search on Escape
     if (event.key === "Escape" || event.code === "Escape") {
-      if (document.activeElement && document.activeElement.id === "search") {
-        document.activeElement.blur();
-      }
-      const searchContent = document.getElementById("search-content");
-      const searchResults = document.getElementById("search-results");
-      if (searchContent) searchContent.style.display = "none";
-      if (searchResults) searchResults.innerHTML = "";
+      const inputs = getSearchInputs();
+      inputs.forEach(input => {
+        input.blur();
+        input.value = "";
+      });
+      const content = getSearchContentEle();
+      const results = getSearchResultsContainer();
+      if (content) content.style.display = "none";
+      if (results) results.innerHTML = "";
     }
   });
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { isValidUrl, encodeHTML };
 }
