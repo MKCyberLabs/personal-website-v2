@@ -74,6 +74,10 @@
 ## 2024-06-15 - Missing ARIA context on generic "Know more" and "Read" buttons
 **Learning:** In list views (like projects, certificates, or blog posts), generic link text like "Know more" or "Read" provides insufficient context for screen reader users when navigated out of context (e.g., via a screen reader's elements list).
 **Action:** Always add descriptive `aria-label` attributes to generic "Read more" or "Know more" buttons that include the title of the associated item (e.g., `aria-label='Know more about {{ .Title }}'`).
+
+## 2024-06-25 - Redundant screen reader announcements for visual required indicators
+**Learning:** When creating forms with visual 'required' indicators like asterisks, if the input already uses the native HTML `required` attribute, the asterisk will cause a redundant announcement by screen readers (e.g. "Email star required").
+**Action:** Hide the visual asterisk from screen readers using `aria-hidden="true"` to prevent redundant screen reader announcements.
 ## 2024-07-25 - Unique alt text for gallery and achievement images
 **Learning:** In Hugo templates, when iterating through lists of images (e.g., using `range` for galleries or achievements), using hardcoded generic `alt` attributes like "Gallery image" or "Achievement image" is an accessibility anti-pattern because screen readers will announce every image identically.
 **Action:** Always use dynamic iteration variables (e.g., `{{ .title }}`) or an indexed counter (e.g., `{{ print "Image " (add $index 1) }}`) to ensure every image has a unique and descriptive accessible name.
