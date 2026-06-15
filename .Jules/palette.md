@@ -58,3 +58,6 @@
 ## 2024-05-18 - Missing ARIA labels and titles on icon-only project/certificate links
 **Learning:** In the Hugo-Profile theme, icon-only utility buttons or external links (e.g., social links inside the project list or certificates section) often lack explicit `aria-label` or `title` attributes. This makes them invisible or confusing to screen readers and hides visual context from mouse users (no tooltip).
 **Action:** When adding or auditing lists of links that are represented solely by an icon (such as a FontAwesome class `<i>`), always ensure there is an accessible fallback name on the anchor tag. Use template logic like `aria-label='{{ .title | default (print "Project link for " .url) }}'` to gracefully handle missing configuration while guaranteeing accessibility.
+## 2024-06-25 - Contextual ARIA labels for generic link text
+**Learning:** Generic link text like "Read" or "Know more" is ambiguous for screen reader users when read out of context (e.g., when tabbing through links).
+**Action:** Always provide a contextual `aria-label` (e.g., `aria-label='Know more about {{ .Title }}'`) to generic "Read more" style links to give screen reader users clarity about the link destination.
