@@ -61,6 +61,9 @@
 ## 2024-05-18 - Missing ARIA labels and titles on icon-only project/certificate links
 **Learning:** In the Hugo-Profile theme, icon-only utility buttons or external links (e.g., social links inside the project list or certificates section) often lack explicit `aria-label` or `title` attributes. This makes them invisible or confusing to screen readers and hides visual context from mouse users (no tooltip).
 **Action:** When adding or auditing lists of links that are represented solely by an icon (such as a FontAwesome class `<i>`), always ensure there is an accessible fallback name on the anchor tag. Use template logic like `aria-label='{{ .title | default (print "Project link for " .url) }}'` to gracefully handle missing configuration while guaranteeing accessibility.
+## 2024-06-25 - Contextual ARIA labels for generic link text
+**Learning:** Generic link text like "Read" or "Know more" is ambiguous for screen reader users when read out of context (e.g., when tabbing through links).
+**Action:** Always provide a contextual `aria-label` (e.g., `aria-label='Know more about {{ .Title }}'`) to generic "Read more" style links to give screen reader users clarity about the link destination.
 
 ## 2024-05-23 - Add explicit labels to contact form
 **Learning:** Relying solely on placeholders for form fields is an accessibility and UX anti-pattern because the placeholder disappears when the user starts typing, causing a loss of context.
@@ -78,3 +81,44 @@
 ## 2024-06-25 - Hiding visual required indicators from screen readers
 **Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers announce both the text ('asterisk') and the native input attribute ('required'), causing redundant and confusing announcements.
 **Action:** Always hide visual asterisk indicators using `aria-hidden="true"` when the input already uses the native HTML `required` attribute to ensure a clean screen reader experience.
+## 2024-06-20 - Visual asterisks in required fields
+**Learning:** When using a visual asterisk (`*`) to indicate a required field in a form, if the input already has the native `required` attribute, the screen reader will read both the required state and the "star" symbol, creating a redundant and confusing experience.
+**Action:** Always add `aria-hidden="true"` to purely visual 'required' indicators (like asterisks) when the input itself semantically communicates its required state.
+## 2024-06-20 - Hide decorative required asterisks from screen readers
+**Learning:** When creating forms with visual 'required' indicators like asterisks, if the input already uses the native HTML `required` attribute, the screen reader will announce "required" automatically. Announcing the asterisk as well is redundant and causes clutter.
+**Action:** Hide the asterisk from screen readers using `aria-hidden="true"`. However, avoid supplementing it with explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) if the input already uses the native HTML `required` attribute, to prevent redundant screen reader announcements.
+## 2024-06-15 - Hide visual required indicators from screen readers
+**Learning:** Visual required indicators like asterisks inside `<label>` elements are read aloud by screen readers (e.g., "Email star"), which is redundant and confusing when the associated input already has a native `required` attribute.
+**Action:** Always add `aria-hidden="true"` to visual required indicators (like `<span class="text-danger">*</span>`) to hide them from assistive technologies, relying on the native `required` attribute for semantic meaning.
+## 2024-06-25 - Redundant screen reader announcements for visual required indicators
+**Learning:** When creating forms with visual 'required' indicators like asterisks, if the input already uses the native HTML `required` attribute, the asterisk will cause a redundant announcement by screen readers (e.g. "Email star required").
+**Action:** Hide the visual asterisk from screen readers using `aria-hidden="true"` to prevent redundant screen reader announcements.
+## 2024-07-25 - Unique alt text for gallery and achievement images
+**Learning:** In Hugo templates, when iterating through lists of images (e.g., using `range` for galleries or achievements), using hardcoded generic `alt` attributes like "Gallery image" or "Achievement image" is an accessibility anti-pattern because screen readers will announce every image identically.
+**Action:** Always use dynamic iteration variables (e.g., `{{ .title }}`) or an indexed counter (e.g., `{{ print "Image " (add $index 1) }}`) to ensure every image has a unique and descriptive accessible name.
+
+## 2024-06-20 - Descriptive alt text for lists of images
+**Learning:** In Hugo templates, when iterating through lists of images (e.g., using `range` for galleries or achievements), hardcoding generic `alt` attributes results in poor screen reader experience where all items sound the same.
+**Action:** Always use dynamic iteration variables (e.g., `{{ .title }}`) or an indexed counter (`{{ print "Image " (add $index 1) }}`) to ensure every image has a unique and descriptive accessible name.
+## 2024-06-20 - Explicit Form Labels vs Placeholders and Accessibility
+**Learning:** Relying solely on placeholders for form fields is a UX and accessibility anti-pattern. Placeholders disappear when a user begins typing, which can cause loss of context. Furthermore, explicit `<label>` elements provide better support for assistive technologies and increase the clickable area of the input. In the header search, the inputs were missing explicit labels for screen readers.
+**Action:** Always provide visible, explicitly linked `<label>` elements (using `for` and `id`) for form inputs, and include clear visual indicators for required fields to support cognitive and visual accessibility. Removed redundant screen-reader announcements by keeping `aria-label="Search"` on inputs rather than adding an explicit `<label>`, since the native inputs use attributes appropriately. Also, removed redundant hidden `Required` spans on inputs that use the native `required` attribute, to prevent screen readers from announcing it twice.
+## 2024-06-25 - Improved Accessibility of Required Form Fields
+**Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers may announce them awkwardly (e.g., "star"). Hiding the asterisk and supplementing it with explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) ensures accurate accessibility announcements.
+**Action:** Hide the asterisk from screen readers using `aria-hidden="true"` and add a visually hidden "Required" span to improve the screen reader experience.
+## 2024-07-20 - Accessible required field indicators
+**Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers may read the asterisk confusingly (e.g., "star"). Hiding the asterisk from screen readers and supplementing it with explicit visually hidden text ensures accurate and clear accessibility announcements.
+**Action:** Always hide visual required indicators using `aria-hidden="true"` and add an explicit `<span class="visually-hidden">Required</span>` for screen readers.
+
+## 2024-06-25 - Accessible required field indicators
+**Learning:** Visual 'required' indicators like asterisks (*) are often read aloud by screen readers as "star" or "asterisk", which can be confusing without context.
+**Action:** Always hide visual asterisks from screen readers using `aria-hidden="true"` and provide an explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) to ensure accurate accessibility announcements.
+## 2024-06-03 - [Accessible Required Form Indicators]
+**Learning:** Visual indicators like asterisks for required fields must be hidden from screen readers to avoid confusing announcements (e.g., "star").
+**Action:** Use `aria-hidden="true"` on the asterisk and supplement it with an explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) for screen readers.
+## 2024-06-01 - Hide visual asterisks from screen readers
+**Learning:** Visual "required" indicators like asterisks (<span class="text-danger">*</span>) are often announced as "star" or "asterisk" by screen readers, which is confusing or ignored.
+**Action:** Always add `aria-hidden="true"` to the visual asterisk and provide a visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) to explicitly state the requirement to screen reader users.
+## 2024-06-16 - Dynamic and unique alt text for lists of images
+**Learning:** Hardcoding generic `alt` text (like `alt="Gallery image"` or `alt="Achievement image"`) across a list or gallery of images provides poor context and repetitive announcements for screen reader users.
+**Action:** Always use dynamic template variables (e.g., `{{ .title }}`) or, at a minimum, numbered sequences (e.g., `{{ print "Gallery image " (add $index 1) }}`) to ensure each image in a loop has unique and descriptive `alt` text.
