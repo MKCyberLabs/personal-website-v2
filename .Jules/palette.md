@@ -78,3 +78,19 @@
 ## 2024-06-25 - Improved Accessibility of Required Form Fields
 **Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers may announce them awkwardly (e.g., "star"). Hiding the asterisk and supplementing it with explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) ensures accurate accessibility announcements.
 **Action:** Hide the asterisk from screen readers using `aria-hidden="true"` and add a visually hidden "Required" span to improve the screen reader experience.
+## 2024-07-20 - Accessible required field indicators
+**Learning:** When creating forms with visual 'required' indicators like asterisks, screen readers may read the asterisk confusingly (e.g., "star"). Hiding the asterisk from screen readers and supplementing it with explicit visually hidden text ensures accurate and clear accessibility announcements.
+**Action:** Always hide visual required indicators using `aria-hidden="true"` and add an explicit `<span class="visually-hidden">Required</span>` for screen readers.
+
+## 2024-06-25 - Accessible required field indicators
+**Learning:** Visual 'required' indicators like asterisks (*) are often read aloud by screen readers as "star" or "asterisk", which can be confusing without context.
+**Action:** Always hide visual asterisks from screen readers using `aria-hidden="true"` and provide an explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) to ensure accurate accessibility announcements.
+## 2024-06-03 - [Accessible Required Form Indicators]
+**Learning:** Visual indicators like asterisks for required fields must be hidden from screen readers to avoid confusing announcements (e.g., "star").
+**Action:** Use `aria-hidden="true"` on the asterisk and supplement it with an explicit visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) for screen readers.
+## 2024-06-01 - Hide visual asterisks from screen readers
+**Learning:** Visual "required" indicators like asterisks (<span class="text-danger">*</span>) are often announced as "star" or "asterisk" by screen readers, which is confusing or ignored.
+**Action:** Always add `aria-hidden="true"` to the visual asterisk and provide a visually hidden text (e.g., `<span class="visually-hidden">Required</span>`) to explicitly state the requirement to screen reader users.
+## 2024-06-16 - Dynamic and unique alt text for lists of images
+**Learning:** Hardcoding generic `alt` text (like `alt="Gallery image"` or `alt="Achievement image"`) across a list or gallery of images provides poor context and repetitive announcements for screen reader users.
+**Action:** Always use dynamic template variables (e.g., `{{ .title }}`) or, at a minimum, numbered sequences (e.g., `{{ print "Gallery image " (add $index 1) }}`) to ensure each image in a loop has unique and descriptive `alt` text.
