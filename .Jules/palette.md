@@ -122,6 +122,9 @@
 ## 2024-06-16 - Dynamic and unique alt text for lists of images
 **Learning:** Hardcoding generic `alt` text (like `alt="Gallery image"` or `alt="Achievement image"`) across a list or gallery of images provides poor context and repetitive announcements for screen reader users.
 **Action:** Always use dynamic template variables (e.g., `{{ .title }}`) or, at a minimum, numbered sequences (e.g., `{{ print "Gallery image " (add $index 1) }}`) to ensure each image in a loop has unique and descriptive `alt` text.
+## 2024-06-16 - Add focus-visible to theme toggle
+**Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
+**Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
 ## 2024-07-28 - Empty State Call-to-Actions
 **Learning:** Error pages like 404s without clear calls to action (like a "Return Home" button) leave users at a dead end, forcing them to rely on browser controls.
 **Action:** Always provide clear, accessible, and contextually appropriate navigation options on empty states or error pages to guide the user back to the primary flow.
