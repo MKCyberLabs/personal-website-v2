@@ -128,3 +128,6 @@
 ## 2024-07-28 - Empty State Call-to-Actions
 **Learning:** Error pages like 404s without clear calls to action (like a "Return Home" button) leave users at a dead end, forcing them to rely on browser controls.
 **Action:** Always provide clear, accessible, and contextually appropriate navigation options on empty states or error pages to guide the user back to the primary flow.
+## 2026-06-17 - Add focus-visible to theme toggle
+**Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
+**Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
