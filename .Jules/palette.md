@@ -128,3 +128,7 @@
 ## 2024-07-28 - Empty State Call-to-Actions
 **Learning:** Error pages like 404s without clear calls to action (like a "Return Home" button) leave users at a dead end, forcing them to rely on browser controls.
 **Action:** Always provide clear, accessible, and contextually appropriate navigation options on empty states or error pages to guide the user back to the primary flow.
+
+## 2024-06-26 - Skip to Main Content Link
+**Learning:** Keyboard users often have to tab through repetitive navigation links before reaching the main content, which can be frustrating and time-consuming.
+**Action:** Always provide a "Skip to main content" link as the first focusable element on the page. Use `.visually-hidden-focusable` so it remains hidden for sighted users until focused, and ensure the target container has `tabindex="-1"` to properly receive programmatic focus.

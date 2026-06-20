@@ -16,11 +16,12 @@
 </head>
 
 <body class="light">
+  <a href="#content" class="btn btn-primary visually-hidden-focusable position-absolute top-0 start-0 m-3" style="z-index: 9999;">Skip to main content</a>
   <!-- javascripts -->
   <!-- <script src="/js/jquery-3.6.0.min.js"></script> -->
 
   {{- partialCached "sections/header.html" . .Site.Language.Lang .Section -}}
-  <div id="content">
+  <div id="content" tabindex="-1" style="outline: none;">
     {{- block "main" . }}{{- end }}
   </div>
   {{- partialCached "sections/footer/index.html" . .Site.Language.Lang .Section -}}
