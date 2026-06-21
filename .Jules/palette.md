@@ -128,3 +128,7 @@
 ## 2024-07-28 - Empty State Call-to-Actions
 **Learning:** Error pages like 404s without clear calls to action (like a "Return Home" button) leave users at a dead end, forcing them to rely on browser controls.
 **Action:** Always provide clear, accessible, and contextually appropriate navigation options on empty states or error pages to guide the user back to the primary flow.
+
+## 2024-06-21 - [Skip to main content link]
+**Learning:** Skip to main content links are critical for keyboard navigation accessibility, ensuring screen reader and keyboard-only users can bypass repetitive navigation links. Adding `tabindex="-1"` and `style="outline: none;"` to the target container allows programmatic focus without showing a confusing browser focus ring.
+**Action:** Always include a 'Skip to main content' link as the first focusable element using Bootstrap's `.visually-hidden-focusable` and properly configure the target container.
