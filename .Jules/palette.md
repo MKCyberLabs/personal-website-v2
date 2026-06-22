@@ -132,3 +132,6 @@
 ## 2024-06-26 - Skip to Main Content Link
 **Learning:** Keyboard users often have to tab through repetitive navigation links before reaching the main content, which can be frustrating and time-consuming.
 **Action:** Always provide a "Skip to main content" link as the first focusable element on the page. Use `.visually-hidden-focusable` so it remains hidden for sighted users until focused, and ensure the target container has `tabindex="-1"` to properly receive programmatic focus.
+## 2026-06-17 - Add focus-visible to theme toggle
+**Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
+**Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
