@@ -21,7 +21,7 @@ header .navbar .navbar-nav a {
 
 .navbar-toggler {
     border: none;
-    outline: none;
+    outline: 0;
     color: var(--text-color);
 }
 .navbar-toggler svg {
@@ -29,7 +29,13 @@ header .navbar .navbar-nav a {
     color: var(--text-color);
 }
 .navbar-toggler:focus {
+    outline: 0;
+}
+
+.navbar-toggler:focus-visible {
     box-shadow: 0 0 0 .05em;
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
 }
 .navbar-text {
     font-size: 16px !important;
