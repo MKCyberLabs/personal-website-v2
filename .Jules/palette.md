@@ -135,3 +135,7 @@
 ## 2026-06-17 - Add focus-visible to theme toggle
 **Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
+
+## 2024-07-28 - Avoid redundant alt text for linked logos
+**Learning:** When images (like brand logos) are used as links to the home page, providing an `alt` text on the image along with an `aria-label` on the link causes redundant announcements for screen reader users.
+**Action:** Add a descriptive `aria-label="Home"` to the link and set the image `alt=""` to prevent redundant screen reader announcements.
