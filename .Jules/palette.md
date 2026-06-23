@@ -135,3 +135,7 @@
 ## 2026-06-17 - Add focus-visible to theme toggle
 **Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
+
+## 2024-08-01 - Add focus-visible to Scroll to top button
+**Learning:** Explicitly setting `outline: none` on interactive controls like the "Scroll to top" button breaks keyboard accessibility by removing the browser's default focus ring.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline when setting `outline: none` or `outline: 0` on interactive elements to ensure keyboard users can track their focus.
