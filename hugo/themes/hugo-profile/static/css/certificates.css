@@ -62,6 +62,11 @@
 #certificates .float-end .btn:focus {
     box-shadow: none !important;
 }
+
+#certificates .float-end .btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--primary-color) !important;
+}
 #certificates .card h5 {
     color: var(--text-color) !important;
     opacity: 0.9;
