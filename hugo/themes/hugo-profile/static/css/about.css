@@ -250,3 +250,7 @@
     transition: .5s;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+#single #topScroll:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 10px;
+}
