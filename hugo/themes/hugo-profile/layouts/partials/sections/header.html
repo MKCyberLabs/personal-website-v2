@@ -50,10 +50,10 @@
     <nav class="navbar navbar-expand-lg {{ if .Site.Params.animate }}animate{{ end }}">
         <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
             <!-- navbar brand -->
-            <a class="navbar-brand primary-font text-wrap" href="{{ .Site.BaseURL | relURL }}">
+            <a class="navbar-brand primary-font text-wrap" href="{{ .Site.BaseURL | relURL }}" aria-label="Home">
                 {{ if and (or (.Site.Params.favicon) (.Site.Params.navbar.brandLogo)) (.Site.Params.navbar.showBrandLogo | default true) }}
                 <img src="{{ .Site.Params.navbar.brandLogo | default .Site.Params.favicon }}" width="120" height="120"
-                    class="d-inline-block align-top" alt="Brand Logo">
+                    class="d-inline-block align-top" alt="">
                 
                 {{ else }}
                
