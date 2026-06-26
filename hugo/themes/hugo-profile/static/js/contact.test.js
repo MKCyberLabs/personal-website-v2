@@ -17,6 +17,8 @@ test('handleFormspreeSubmit sets loading state and restores on success', async (
     }
   };
 
+  global.mockInputs = [{ disabled: false }, { disabled: false }];
+
   global.mockForm = {
     method: 'POST',
     reset: () => { global.mockForm.wasReset = true; },
@@ -26,6 +28,12 @@ test('handleFormspreeSubmit sets loading state and restores on success', async (
         return global.mockSubmitBtn;
       }
       return null;
+    },
+    querySelectorAll: (selector) => {
+      if (selector === 'input, textarea') {
+        return global.mockInputs;
+      }
+      return [];
     }
   };
 
@@ -50,6 +58,7 @@ test('handleFormspreeSubmit sets loading state and restores on success', async (
     // Check loading state while fetch is pending
     assert.strictEqual(global.mockSubmitBtn.disabled, true);
     assert.ok(global.mockSubmitBtn.innerHTML.includes('spinner-border'));
+    assert.strictEqual(global.mockInputs[0].disabled, true);
 
     return {
       ok: true
@@ -74,6 +83,7 @@ test('handleFormspreeSubmit sets loading state and restores on success', async (
 
   assert.strictEqual(global.mockSubmitBtn.disabled, false);
   assert.strictEqual(global.mockSubmitBtn.innerHTML, 'Submit');
+  assert.strictEqual(global.mockInputs[0].disabled, false);
   assert.strictEqual(global.mockForm.wasReset, true);
   assert.ok(global.mockFormStatus.innerHTML.includes('Thanks for your submission!'));
 });
@@ -84,6 +94,7 @@ test('handleFormspreeSubmit restores state on error', async (t) => {
   global.mockSubmitBtn.disabled = false;
   global.mockSubmitBtn.innerHTML = 'Submit';
   global.mockFormStatus.innerHTML = '';
+  global.mockInputs.forEach(input => input.disabled = false);
 
   global.fetch = async () => {
     throw new Error('Network error');
@@ -101,6 +112,7 @@ test('handleFormspreeSubmit restores state on error', async (t) => {
 
   assert.strictEqual(global.mockSubmitBtn.disabled, false);
   assert.strictEqual(global.mockSubmitBtn.innerHTML, 'Submit');
+  assert.strictEqual(global.mockInputs[0].disabled, false);
   assert.strictEqual(global.mockForm.wasReset, false);
   assert.ok(global.mockFormStatus.innerHTML.includes('Oops! There was a problem'));
 });
