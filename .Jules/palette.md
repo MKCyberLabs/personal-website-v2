@@ -135,3 +135,7 @@
 ## 2026-06-17 - Add focus-visible to theme toggle
 **Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
+
+## 2024-07-28 - Disable form inputs during async submissions
+**Learning:** Leaving form inputs enabled during an async submission process allows users to modify data mid-flight or trigger multiple submissions, leading to poor UX and potential race conditions.
+**Action:** Always disable all form inputs (e.g., `input`, `textarea`, `select`) in addition to the submit button while an async operation is pending, and restore their state in a `finally` block.
