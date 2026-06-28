@@ -129,6 +129,25 @@
 **Learning:** Error pages like 404s without clear calls to action (like a "Return Home" button) leave users at a dead end, forcing them to rely on browser controls.
 **Action:** Always provide clear, accessible, and contextually appropriate navigation options on empty states or error pages to guide the user back to the primary flow.
 
-## 2024-06-21 - [Skip to main content link]
-**Learning:** Skip to main content links are critical for keyboard navigation accessibility, ensuring screen reader and keyboard-only users can bypass repetitive navigation links. Adding `tabindex="-1"` and `style="outline: none;"` to the target container allows programmatic focus without showing a confusing browser focus ring.
-**Action:** Always include a 'Skip to main content' link as the first focusable element using Bootstrap's `.visually-hidden-focusable` and properly configure the target container.
+## 2024-06-26 - Skip to Main Content Link
+**Learning:** Keyboard users often have to tab through repetitive navigation links before reaching the main content, which can be frustrating and time-consuming.
+**Action:** Always provide a "Skip to main content" link as the first focusable element on the page. Use `.visually-hidden-focusable` so it remains hidden for sighted users until focused, and ensure the target container has `tabindex="-1"` to properly receive programmatic focus.
+## 2026-06-17 - Add focus-visible to theme toggle
+**Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
+**Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
+
+## 2024-07-28 - Disable form inputs during async submissions
+**Learning:** Leaving form inputs enabled during an async submission process allows users to modify data mid-flight or trigger multiple submissions, leading to poor UX and potential race conditions.
+**Action:** Always disable all form inputs (e.g., `input`, `textarea`, `select`) in addition to the submit button while an async operation is pending, and restore their state in a `finally` block.
+
+## 2024-07-30 - Home link logos screen reader optimization
+**Learning:** When images like brand logos are used as links to the home page, having a non-empty `alt` attribute on the image without an `aria-label` on the anchor tag results in a less descriptive and sometimes redundant screen reader experience.
+**Action:** Always provide an `aria-label="Home"` on the anchor tag wrapping the logo and set the image `alt=""` to prevent redundant screen reader announcements and improve navigation clarity.
+
+## 2024-08-01 - Add focus-visible to Scroll to top button
+**Learning:** Explicitly setting `outline: none` on interactive controls like the "Scroll to top" button breaks keyboard accessibility by removing the browser's default focus ring.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline when setting `outline: none` or `outline: 0` on interactive elements to ensure keyboard users can track their focus.
+
+## 2024-08-05 - Add focus-visible to generic buttons
+**Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
+**Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.

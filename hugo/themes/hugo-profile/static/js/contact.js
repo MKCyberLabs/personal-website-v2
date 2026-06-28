@@ -11,10 +11,18 @@ async function handleFormspreeSubmit(event) {
     submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`;
   }
 
-  const restoreButton = () => {
+  const formInputs = form.querySelectorAll('input, textarea');
+  if (formInputs) {
+    formInputs.forEach(input => input.disabled = true);
+  }
+
+  const restoreFormState = () => {
     if (submitBtn) {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
+    }
+    if (formInputs) {
+      formInputs.forEach(input => input.disabled = false);
     }
   };
 
@@ -42,7 +50,7 @@ async function handleFormspreeSubmit(event) {
       contactAlert("danger", "Oops! There was a problem submitting your form");
     })
     .finally(() => {
-      restoreButton();
+      restoreFormState();
     });
 }
 
