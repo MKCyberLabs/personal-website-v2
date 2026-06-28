@@ -136,6 +136,18 @@
 **Learning:** Explicitly setting `outline: 0` on buttons (like the theme toggle) without adding a `:focus-visible` fallback breaks keyboard navigation accessibility.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline.
 
-## 2024-07-28 - Image Link Accessibility for Home Navigation
-**Learning:** When images (like brand logos) are used as links to the home page, providing descriptive `alt` text alongside the link's implicit purpose creates redundant or confusing screen reader announcements.
-**Action:** Provide an `aria-label="Home"` on the anchor tag and set the image `alt=""` to prevent redundant screen reader announcements.
+## 2024-07-28 - Disable form inputs during async submissions
+**Learning:** Leaving form inputs enabled during an async submission process allows users to modify data mid-flight or trigger multiple submissions, leading to poor UX and potential race conditions.
+**Action:** Always disable all form inputs (e.g., `input`, `textarea`, `select`) in addition to the submit button while an async operation is pending, and restore their state in a `finally` block.
+
+## 2024-07-30 - Home link logos screen reader optimization
+**Learning:** When images like brand logos are used as links to the home page, having a non-empty `alt` attribute on the image without an `aria-label` on the anchor tag results in a less descriptive and sometimes redundant screen reader experience.
+**Action:** Always provide an `aria-label="Home"` on the anchor tag wrapping the logo and set the image `alt=""` to prevent redundant screen reader announcements and improve navigation clarity.
+
+## 2024-08-01 - Add focus-visible to Scroll to top button
+**Learning:** Explicitly setting `outline: none` on interactive controls like the "Scroll to top" button breaks keyboard accessibility by removing the browser's default focus ring.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline when setting `outline: none` or `outline: 0` on interactive elements to ensure keyboard users can track their focus.
+
+## 2024-08-05 - Add focus-visible to generic buttons
+**Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
+**Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.

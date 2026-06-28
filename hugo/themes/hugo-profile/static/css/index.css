@@ -160,6 +160,11 @@ header .navbar.animate {
     box-shadow: none;
 }
 
+#hero a.btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--primary-color);
+}
+
 #hero a.btn:hover {
     background-color: var(--secondary-color) !important;
     color: var(--text-color) !important;
@@ -378,6 +383,11 @@ header .navbar.animate {
     box-shadow: none;
 }
 
+#experience .experience-container .tab-content .tab-pane .featuredLink a.btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--primary-color);
+}
+
 #experience .experience-container .tab-content .tab-pane .featuredLink a.btn:hover {
     color: var(--text-color) !important;
     opacity: 0.7;
@@ -538,6 +548,11 @@ header .navbar.animate {
 
 #contact .btn:focus {
     box-shadow: none !important;
+}
+
+#contact .btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--primary-color) !important;
 }
 
 #contact form .form-control {
