@@ -151,3 +151,7 @@
 ## 2024-08-05 - Add focus-visible to generic buttons
 **Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.
+
+## 2024-06-30 - Duplicate DOM IDs in Hugo Range Loops
+**Learning:** Hardcoding DOM IDs (like `navbarDropdown`) inside Hugo `range` loops for navigation menus creates duplicate IDs in the rendered HTML, breaking accessibility associations (e.g., `aria-labelledby`). This is an accessibility issue pattern specific to this app's components due to the way templates iterate over config items.
+**Action:** Always append a unique template variable (e.g., `{{ .Name | urlize }}`) to DOM IDs inside loops to ensure uniqueness and valid semantic associations.
