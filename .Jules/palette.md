@@ -155,3 +155,7 @@
 ## 2024-07-01 - Fix duplicate DOM IDs in Navbar Dropdown Menus
 **Learning:** In Hugo templates, avoiding hardcoded DOM IDs inside `range` loops is crucial for accessibility. Reusing an ID like `navbarDropdown` breaks `aria-labelledby` associations. Appending an index or a unique property like `{{ .Name | urlize }}` ensures uniqueness and preserves screen reader accessibility.
 **Action:** Always append a unique identifier (like `.Name | urlize` or `$index`) to DOM IDs when creating elements inside a Hugo template `range` loop to maintain valid HTML and a11y support.
+
+## 2024-08-10 - Add focus-visible to link elements
+**Learning:** Explicitly removing default focus styles using `box-shadow: none` on link elements like `.post-footer a`, `ul li a` (pagination), and `.card-footer a` breaks keyboard navigation accessibility for users tabbing through links.
+**Action:** Always provide a `:focus-visible` state with a visible outline/box-shadow when removing the default `:focus` box-shadow to ensure keyboard accessibility.
