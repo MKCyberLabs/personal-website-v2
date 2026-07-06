@@ -155,3 +155,6 @@
 ## 2024-07-01 - Fix duplicate DOM IDs in Navbar Dropdown Menus
 **Learning:** In Hugo templates, avoiding hardcoded DOM IDs inside `range` loops is crucial for accessibility. Reusing an ID like `navbarDropdown` breaks `aria-labelledby` associations. Appending an index or a unique property like `{{ .Name | urlize }}` ensures uniqueness and preserves screen reader accessibility.
 **Action:** Always append a unique identifier (like `.Name | urlize` or `$index`) to DOM IDs when creating elements inside a Hugo template `range` loop to maintain valid HTML and a11y support.
+## 2024-05-18 - Search results keyboard accessibility
+**Learning:** Dropdowns and interactive elements inside absolute positioned containers (like search results) require explicit focus-within styles. Relying on just :hover fails for keyboard users. Adding a focus-within outline to the card in addition to :hover improves visibility for keyboard navigation.
+**Action:** Always include :focus-within for complex interactive elements alongside :hover for full accessibility support. Ensure the inner focusable element (e.g. anchor tag) has an outline removed to avoid double focus ring.
