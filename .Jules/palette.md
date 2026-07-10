@@ -155,3 +155,7 @@
 ## 2024-07-01 - Fix duplicate DOM IDs in Navbar Dropdown Menus
 **Learning:** In Hugo templates, avoiding hardcoded DOM IDs inside `range` loops is crucial for accessibility. Reusing an ID like `navbarDropdown` breaks `aria-labelledby` associations. Appending an index or a unique property like `{{ .Name | urlize }}` ensures uniqueness and preserves screen reader accessibility.
 **Action:** Always append a unique identifier (like `.Name | urlize` or `$index`) to DOM IDs when creating elements inside a Hugo template `range` loop to maintain valid HTML and a11y support.
+
+## 2026-07-10 - [Dynamic Search Results Accessibility]
+**Learning:** Screen readers fail to announce dynamically injected search results unless the static container has the aria-live attribute.
+**Action:** Always add `aria-live="polite"` to empty static containers that will receive asynchronous DOM updates like search results.
