@@ -62,3 +62,8 @@ footer .card > .card-header .card-img-top {
     object-fit: cover;
     background-color: transparent !important;
 }
+
+footer .card-footer a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--primary-color) !important;
+}
