@@ -80,7 +80,7 @@ li > .dropdown-toggle:focus{
 	border-top: 1px solid var(--lt-color-border-dark);
 }
 
-#search {
+#search-desktop, #search-mobile {
     border-radius: 1rem !important;
     background-color: var(--secondary-color);
     color: var(--text-color);
@@ -88,8 +88,12 @@ li > .dropdown-toggle:focus{
     transition: none;
 }
 
-#search:focus {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+#search-desktop:focus, #search-mobile:focus {
+    outline: none;
+}
+
+#search-desktop:focus-visible, #search-mobile:focus-visible {
+    box-shadow: 0 0 0 2px var(--primary-color);
 }
 #search-content {
     -ms-scroll-chaining: none;
@@ -115,7 +119,8 @@ li > .dropdown-toggle:focus{
     margin-bottom: 10px;
 }
 
-#search-results > .card :hover {
+#search-results > .card:hover,
+#search-results > .card:focus-within {
     border-radius: 1rem !important;
     background-color: var(--background-color) !important;
     transition: .2s;
@@ -128,6 +133,8 @@ li > .dropdown-toggle:focus{
     color: var(--text-color) !important;
 }
 
-#search-results .card a:hover {
+#search-results .card a:hover,
+#search-results .card a:focus-visible {
+    outline: none;
     color: var(--primary-color) !important;
 }
