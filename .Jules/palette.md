@@ -169,3 +169,6 @@
 **Learning:** Explicitly removing default focus styles using `box-shadow: none` on link elements like `.post-footer a`, `ul li a` (pagination), and `.card-footer a` breaks keyboard navigation accessibility for users tabbing through links.
 **Action:** Always provide a `:focus-visible` state with a visible outline/box-shadow when removing the default `:focus` box-shadow to ensure keyboard accessibility.
 >>>>>>> palette-focus-visible-fix-16934635494255590775
+## 2024-07-12 - Added `aria-hidden="true"` to SVG decorative icons
+**Learning:** Purely decorative icons (e.g., Font Awesome `<i class="fas fa-..."></i>` or inline `<svg>` elements) must include `aria-hidden="true"` and avoid redundant `aria-label` attributes to prevent confusing or duplicate screen reader announcements, especially when placed inside interactive elements that already have their own descriptive `aria-label`s.
+**Action:** When adding or reviewing icon-only links, always check the parent anchor tag for an `aria-label` and ensure the child icon has `aria-hidden="true"` and no duplicate `aria-label`.
