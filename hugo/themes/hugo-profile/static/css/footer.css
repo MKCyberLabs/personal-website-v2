@@ -46,8 +46,13 @@ footer .card-footer a:hover {
     opacity: 0.8;
 }
 
+<<<<<<< HEAD
 footer .card-footer a:focus {
     box-shadow: none !important;
+=======
+footer .card-footer a:focus {
+    box-shadow: none !important;
+>>>>>>> palette-focus-visible-fix-16934635494255590775
 }
 
 footer .card-footer a:focus-visible {
