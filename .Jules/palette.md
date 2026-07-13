@@ -172,3 +172,7 @@
 ## 2024-07-12 - Added `aria-hidden="true"` to SVG decorative icons
 **Learning:** Purely decorative icons (e.g., Font Awesome `<i class="fas fa-..."></i>` or inline `<svg>` elements) must include `aria-hidden="true"` and avoid redundant `aria-label` attributes to prevent confusing or duplicate screen reader announcements, especially when placed inside interactive elements that already have their own descriptive `aria-label`s.
 **Action:** When adding or reviewing icon-only links, always check the parent anchor tag for an `aria-label` and ensure the child icon has `aria-hidden="true"` and no duplicate `aria-label`.
+
+## 2024-07-13 - Preventing Redundant Screen Reader Announcements on Duplicate Links and Images
+**Learning:** When images are wrapped in anchor tags and adjacent to text links pointing to the same destination, screen readers will announce the link twice (once for the image, once for the text). Additionally, decorative icons or SVGs without `aria-hidden="true"` can cause extra, confusing announcements.
+**Action:** Always add `tabindex="-1"` and `aria-hidden="true"` to the anchor tag surrounding a duplicate image link. Ensure decorative images use `alt=""`, and pure CSS/SVG decorative graphics include `aria-hidden="true"` to create a cleaner, less verbose screen reader experience.

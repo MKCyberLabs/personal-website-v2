@@ -17,8 +17,8 @@
                 <div class="card h-100">
                     {{ if and (not (.Site.Params.listPages.disableFeaturedImage | default false)) (.Params.image) }}
                     <div class="card-header">
-                        <a href="{{ .RelPermalink }}">
-                            <img src="{{ .Params.image }}" class="card-img-top" alt="{{ .Title }}">
+                        <a href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+                            <img src="{{ .Params.image }}" class="card-img-top" alt="">
                         </a>
                     </div>
                     {{ end }}
