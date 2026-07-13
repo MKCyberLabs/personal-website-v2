@@ -40,12 +40,12 @@ for branch in "${BRANCHES[@]}"; do
   
   # For hugo, we might just build it. Or if it's node based, npm run build
   if [ -f "package.json" ]; then
-    npm install
-    npm test || exit 1
+    npm install || { send_telegram_msg "❌ FAILED: npm install failed on $branch"; exit 1; }
+    npm test || { send_telegram_msg "❌ FAILED: npm test failed on $branch"; exit 1; }
   elif [ -f "hugo" ]; then
-    ./hugo || exit 1
+    ./hugo || { send_telegram_msg "❌ FAILED: ./hugo build failed on $branch"; exit 1; }
   else
-    hugo || exit 1
+    hugo || { send_telegram_msg "❌ FAILED: hugo build failed on $branch"; exit 1; }
   fi
   
   git checkout main
