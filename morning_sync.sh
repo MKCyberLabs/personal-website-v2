@@ -1,6 +1,19 @@
 #!/bin/bash
 set -e
 
+if [ -f "/opt/morning_sync.env" ]; then
+  source /opt/morning_sync.env
+fi
+
+send_telegram_msg() {
+  local msg="$1"
+  if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+    curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+      -d chat_id="${TELEGRAM_CHAT_ID}" \
+      -d text="$msg" > /dev/null
+  fi
+}
+
 BRANCHES=(
   "jules-11911018553202008456-c1e94b47"
   "palette/fix-duplicate-dom-ids-navbar-3297582129114553384"
@@ -21,6 +34,7 @@ for branch in "${BRANCHES[@]}"; do
   echo "Merging main into branch to get latest fixes..."
   git merge main --no-edit || {
     echo "FAILED: Merge conflict when merging main into $branch"
+    send_telegram_msg "❌ FAILED: Merge conflict when merging main into $branch"
     exit 1
   }
   
@@ -39,12 +53,15 @@ for branch in "${BRANCHES[@]}"; do
   
   if ! git merge "$branch" --no-edit; then
     echo "FAILED: Merge conflict when merging $branch into main"
+    send_telegram_msg "❌ FAILED: Merge conflict when merging $branch into main"
     exit 1
   fi
   
   git push origin main
   echo "SUCCESS: Merged and pushed $branch into main!"
+  send_telegram_msg "✅ SUCCESS: Merged and pushed $branch into main!"
 done
 
 echo "=================================================="
 echo "Morning sync complete. All branches merged successfully."
+send_telegram_msg "🚀 Morning sync complete. All branches merged successfully."
