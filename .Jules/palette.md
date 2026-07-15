@@ -155,12 +155,7 @@
 ## 2024-07-01 - Fix duplicate DOM IDs in Navbar Dropdown Menus
 **Learning:** In Hugo templates, avoiding hardcoded DOM IDs inside `range` loops is crucial for accessibility. Reusing an ID like `navbarDropdown` breaks `aria-labelledby` associations. Appending an index or a unique property like `{{ .Name | urlize }}` ensures uniqueness and preserves screen reader accessibility.
 **Action:** Always append a unique identifier (like `.Name | urlize` or `$index`) to DOM IDs when creating elements inside a Hugo template `range` loop to maintain valid HTML and a11y support.
-<<<<<<< HEAD
-<<<<<<< HEAD
-## 2026-07-11 - Add focus-visible to generic buttons
-=======
 ## 2024-08-05 - Add focus-visible to generic buttons
->>>>>>> palette-fix-focus-visible-11115817562559784985
 **Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.
 =======
@@ -168,7 +163,7 @@
 ## 2024-08-10 - Add focus-visible to link elements
 **Learning:** Explicitly removing default focus styles using `box-shadow: none` on link elements like `.post-footer a`, `ul li a` (pagination), and `.card-footer a` breaks keyboard navigation accessibility for users tabbing through links.
 **Action:** Always provide a `:focus-visible` state with a visible outline/box-shadow when removing the default `:focus` box-shadow to ensure keyboard accessibility.
->>>>>>> palette-focus-visible-fix-16934635494255590775
+
 ## 2024-07-12 - Added `aria-hidden="true"` to SVG decorative icons
 **Learning:** Purely decorative icons (e.g., Font Awesome `<i class="fas fa-..."></i>` or inline `<svg>` elements) must include `aria-hidden="true"` and avoid redundant `aria-label` attributes to prevent confusing or duplicate screen reader announcements, especially when placed inside interactive elements that already have their own descriptive `aria-label`s.
 **Action:** When adding or reviewing icon-only links, always check the parent anchor tag for an `aria-label` and ensure the child icon has `aria-hidden="true"` and no duplicate `aria-label`.
@@ -176,3 +171,6 @@
 ## 2024-07-13 - Preventing Redundant Screen Reader Announcements on Duplicate Links and Images
 **Learning:** When images are wrapped in anchor tags and adjacent to text links pointing to the same destination, screen readers will announce the link twice (once for the image, once for the text). Additionally, decorative icons or SVGs without `aria-hidden="true"` can cause extra, confusing announcements.
 **Action:** Always add `tabindex="-1"` and `aria-hidden="true"` to the anchor tag surrounding a duplicate image link. Ensure decorative images use `alt=""`, and pure CSS/SVG decorative graphics include `aria-hidden="true"` to create a cleaner, less verbose screen reader experience.
+## 2024-05-20 - Prevent Redundant Announcements on Duplicate Image Links
+**Learning:** Screen readers announce duplicate links twice when an image link and a text link point to the same destination and are adjacent to each other.
+**Action:** Add `tabindex="-1"` and `aria-hidden="true"` to the anchor tag wrapping the image, and use `alt=""` for the image itself to prevent redundant announcements.
