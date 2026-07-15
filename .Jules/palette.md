@@ -174,3 +174,7 @@
 ## 2024-05-20 - Prevent Redundant Announcements on Duplicate Image Links
 **Learning:** Screen readers announce duplicate links twice when an image link and a text link point to the same destination and are adjacent to each other.
 **Action:** Add `tabindex="-1"` and `aria-hidden="true"` to the anchor tag wrapping the image, and use `alt=""` for the image itself to prevent redundant announcements.
+
+## 2024-08-11 - Add focus-visible to custom nav tabs
+**Learning:** Custom tab navigation elements (like `nav-link` used in Bootstrap `nav-pills`) often have default outlines disabled in favor of custom active states (like `border-bottom`). This can break keyboard accessibility if a specific `:focus-visible` state isn't provided, leaving keyboard users without a clear focus indicator when tabbing through the options.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline or box-shadow on custom interactive components like navigation tabs to ensure users tabbing through elements can track their focus.

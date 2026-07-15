@@ -322,6 +322,11 @@ header .navbar.animate {
     opacity: 0.8;
 }
 
+#experience .nav-item .nav-link:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
 #experience a {
     opacity: 0.9;
     display: inline-block;
