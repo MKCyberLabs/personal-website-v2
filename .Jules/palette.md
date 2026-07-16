@@ -178,3 +178,7 @@
 ## 2024-08-11 - Add focus-visible to custom nav tabs
 **Learning:** Custom tab navigation elements (like `nav-link` used in Bootstrap `nav-pills`) often have default outlines disabled in favor of custom active states (like `border-bottom`). This can break keyboard accessibility if a specific `:focus-visible` state isn't provided, leaving keyboard users without a clear focus indicator when tabbing through the options.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline or box-shadow on custom interactive components like navigation tabs to ensure users tabbing through elements can track their focus.
+
+## 2024-08-16 - Avoid aria-label on inputs with explicit labels
+**Learning:** Adding an `aria-label` to a form input that already has an explicitly associated `<label>` (via `for`/`id`) overrides the label's content in screen reader announcements. This is harmful if the `<label>` contains crucial visually hidden information, such as a "Required" indicator that would be lost.
+**Action:** Do not use `aria-label` on form inputs if they are properly linked to an explicit, descriptive `<label>` element.

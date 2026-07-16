@@ -39,13 +39,8 @@
     transition: none;
 }
 
-<<<<<<< HEAD
 #list-page .post-footer a:focus {
     box-shadow: none !important;
-=======
-#list-page .post-footer a:focus {
-    box-shadow: none !important;
->>>>>>> palette-focus-visible-fix-16934635494255590775
 }
 
 #list-page .post-footer a:focus-visible {
@@ -77,13 +72,8 @@
     color: var(--text-color) !important;
 }
 
-<<<<<<< HEAD
 #list-page ul li a:focus {
     box-shadow: none;
-=======
-#list-page ul li a:focus {
-    box-shadow: none;
->>>>>>> palette-focus-visible-fix-16934635494255590775
 }
 
 #list-page ul li a:focus-visible {
