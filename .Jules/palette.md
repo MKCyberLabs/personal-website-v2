@@ -178,3 +178,7 @@
 ## 2024-08-11 - Add focus-visible to custom nav tabs
 **Learning:** Custom tab navigation elements (like `nav-link` used in Bootstrap `nav-pills`) often have default outlines disabled in favor of custom active states (like `border-bottom`). This can break keyboard accessibility if a specific `:focus-visible` state isn't provided, leaving keyboard users without a clear focus indicator when tabbing through the options.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline or box-shadow on custom interactive components like navigation tabs to ensure users tabbing through elements can track their focus.
+
+## 2024-08-16 - Add focus-visible to sidebar elements and custom links
+**Learning:** Custom styled sidebar elements (like Tags, Table of Contents, Social Share links) and custom card links (like `#achievements a.card`) often lack explicitly defined focus states. Additionally, main navigation links may not have clear focus outlines. This makes keyboard navigation difficult for users to track visually when tabbing through the page content.
+**Action:** Always provide a `:focus-visible` state with a visible outline (and optionally `outline-offset` or `border-radius`) on custom interactive elements (like sidebars, nav-links, dropdown-items, and card links) to ensure keyboard users can easily track their focus when tabbing through the page.
