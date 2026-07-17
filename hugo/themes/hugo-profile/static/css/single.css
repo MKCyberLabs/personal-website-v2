@@ -324,3 +324,16 @@
     outline: 2px solid var(--primary-color);
     border-radius: 10px;
 }
+
+#single aside.tags ul.tags-ul li a:focus-visible {
+    outline: 2px solid var(--primary-color);
+}
+
+#single aside.toc .toc-content ol li a:focus-visible, #single aside.toc .toc-content ul li a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+#single aside.social .social-content ul li a:focus-visible {
+    outline: 2px solid var(--primary-color);
+}
