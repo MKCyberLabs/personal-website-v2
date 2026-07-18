@@ -182,3 +182,6 @@
 ## 2024-08-16 - Avoid aria-label on inputs with explicit labels
 **Learning:** Adding an `aria-label` to a form input that already has an explicitly associated `<label>` (via `for`/`id`) overrides the label's content in screen reader announcements. This is harmful if the `<label>` contains crucial visually hidden information, such as a "Required" indicator that would be lost.
 **Action:** Do not use `aria-label` on form inputs if they are properly linked to an explicit, descriptive `<label>` element.
+## 2024-07-18 - Dynamic alt text in list templates
+**Learning:** Hardcoding generic or empty `alt` attributes on images inside iteration loops (like Hugo's `range`) deprives screen reader users of context, especially when the image represents specific content like an achievement or certificate.
+**Action:** When iterating through lists of images in Hugo templates, always use dynamic iteration variables (e.g., `{{ .title }}`) to ensure every image has a unique and descriptive accessible name.
