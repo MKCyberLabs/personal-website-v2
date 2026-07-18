@@ -182,3 +182,7 @@
 ## 2024-08-16 - Avoid aria-label on inputs with explicit labels
 **Learning:** Adding an `aria-label` to a form input that already has an explicitly associated `<label>` (via `for`/`id`) overrides the label's content in screen reader announcements. This is harmful if the `<label>` contains crucial visually hidden information, such as a "Required" indicator that would be lost.
 **Action:** Do not use `aria-label` on form inputs if they are properly linked to an explicit, descriptive `<label>` element.
+
+## 2024-05-24 - Focus Visible Fallbacks for Interactive Sidebar and Nav Elements
+**Learning:** When styling custom interactive elements like sidebar components (tags, TOC, social links), dropdown items, nav-links, and clickable cards, default browser focus outlines are often overridden or hidden.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.
