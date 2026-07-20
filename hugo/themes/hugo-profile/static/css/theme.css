@@ -59,3 +59,15 @@ body *::selection {
     color: var(--text-color) !important;
     background-color: var(--primary-color) !important;
 }
+
+/* Ensure generic buttons have a focus-visible state to improve accessibility */
+.btn:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
+    border-radius: 4px;
+}

@@ -182,3 +182,7 @@
 ## 2024-08-16 - Avoid aria-label on inputs with explicit labels
 **Learning:** Adding an `aria-label` to a form input that already has an explicitly associated `<label>` (via `for`/`id`) overrides the label's content in screen reader announcements. This is harmful if the `<label>` contains crucial visually hidden information, such as a "Required" indicator that would be lost.
 **Action:** Do not use `aria-label` on form inputs if they are properly linked to an explicit, descriptive `<label>` element.
+
+## 2024-08-05 - Add focus-visible to generic buttons
+**Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
+**Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.
