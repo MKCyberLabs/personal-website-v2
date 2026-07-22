@@ -182,3 +182,7 @@
 ## 2024-08-16 - Avoid aria-label on inputs with explicit labels
 **Learning:** Adding an `aria-label` to a form input that already has an explicitly associated `<label>` (via `for`/`id`) overrides the label's content in screen reader announcements. This is harmful if the `<label>` contains crucial visually hidden information, such as a "Required" indicator that would be lost.
 **Action:** Do not use `aria-label` on form inputs if they are properly linked to an explicit, descriptive `<label>` element.
+
+## 2024-08-20 - Add focus-visible to custom tooltips and dropdown items
+**Learning:** Custom interactive elements like tooltips (`<span role="button" tabindex="0">`) and dropdown items can lose keyboard focus visibility if their default outlines are removed or not specified alongside custom focus styles.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline/box-shadow on custom interactive elements (like tooltips and dropdown items) to ensure robust keyboard navigation accessibility.

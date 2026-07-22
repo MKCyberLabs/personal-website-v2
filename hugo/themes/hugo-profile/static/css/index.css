@@ -293,6 +293,17 @@ header .navbar.animate {
     margin: 0;
 }
 
+
+#experience span[role="button"][tabindex="0"]:focus {
+    outline: 0;
+}
+
+#experience span[role="button"][tabindex="0"]:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 #experience .experience-container {
     background-color: var(--secondary-color) !important;
     border-radius: .75rem;

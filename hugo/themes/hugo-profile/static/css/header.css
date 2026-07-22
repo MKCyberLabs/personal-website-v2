@@ -74,6 +74,12 @@ li > .dropdown-toggle:focus{
 
 .dropdown-item:focus, .dropdown-item:active {
     background-color: var(--secondary-color) !important;
+    outline: none;
+}
+
+.dropdown-item:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
 }
 
 .dropdown-divider {
