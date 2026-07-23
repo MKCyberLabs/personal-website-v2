@@ -182,3 +182,6 @@
 ## 2024-08-16 - Avoid aria-label on inputs with explicit labels
 **Learning:** Adding an `aria-label` to a form input that already has an explicitly associated `<label>` (via `for`/`id`) overrides the label's content in screen reader announcements. This is harmful if the `<label>` contains crucial visually hidden information, such as a "Required" indicator that would be lost.
 **Action:** Do not use `aria-label` on form inputs if they are properly linked to an explicit, descriptive `<label>` element.
+## 2026-07-23 - Redundant Image Alt Text in Cards
+**Learning:** When images are placed inside cards that already contain adjacent heading text (like `<h5>`) providing the same context, using dynamic variables for `alt` attributes causes redundant screen reader announcements.
+**Action:** Leave `alt=""` empty for images within cards or links where the exact same text is already present and accessible nearby.
