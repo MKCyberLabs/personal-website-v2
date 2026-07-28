@@ -182,3 +182,7 @@
 ## 2024-08-16 - Avoid aria-label on inputs with explicit labels
 **Learning:** Adding an `aria-label` to a form input that already has an explicitly associated `<label>` (via `for`/`id`) overrides the label's content in screen reader announcements. This is harmful if the `<label>` contains crucial visually hidden information, such as a "Required" indicator that would be lost.
 **Action:** Do not use `aria-label` on form inputs if they are properly linked to an explicit, descriptive `<label>` element.
+
+## 2024-08-20 - Descriptive alt text for about section profile image
+**Learning:** Hardcoding generic `alt` attributes like "Profile image" in the about section provides poor context for screen readers. Using dynamic variables like `.Site.Title` significantly improves the accessibility and context of the image.
+**Action:** Always provide descriptive and dynamic `alt` text for images representing the user or site, such as `alt='{{ print "Profile image of " .Site.Title }}'`.
