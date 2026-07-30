@@ -188,3 +188,7 @@
 ## 2024-08-05 - Add focus-visible to generic buttons
 **Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.
+
+## 2024-09-01 - Add focus-visible to custom dropdowns and interactive cards
+**Learning:** Custom interactive elements like dropdown items and clickable cards often lack a visible focus state when tabbed via keyboard, breaking accessibility.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline or box-shadow for custom interactive UI components to ensure keyboard navigation accessibility.
