@@ -188,3 +188,7 @@
 ## 2024-08-05 - Add focus-visible to generic buttons
 **Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.
+
+## 2026-08-01 - Add focus-visible to dynamic alert close buttons
+**Learning:** Dynamically injected elements (like alert close buttons) using Bootstrap's `.btn-close` often lack a visible focus indicator when overriding default styles, making them inaccessible to keyboard users tabbing through alerts.
+**Action:** Always ensure dynamically generated UI components, particularly those using utility classes like `.btn-close`, have an explicit `:focus-visible` fallback in the global theme CSS.
