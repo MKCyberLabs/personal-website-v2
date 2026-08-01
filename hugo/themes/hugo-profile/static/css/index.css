@@ -528,6 +528,12 @@ header .navbar.animate {
     transition: .3s;
 }
 
+#achievements a.card:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+
 #achievements .card-text {
     background-color: var(--secondary-color) !important;
     color: var(--text-secondary-color) !important;
