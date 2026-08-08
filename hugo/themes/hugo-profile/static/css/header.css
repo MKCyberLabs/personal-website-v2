@@ -45,12 +45,22 @@ header .navbar .navbar-nav a {
 header .nav-link{
     transition: none !important;
 }
+
+header .nav-link:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
+}
 .navbar-brand {
     color: var(--primary-color) !important;
     opacity: 0.95;
 } 
 .navbar .nav-link:hover {
     color: var(--primary-color) !important;
+}
+
+.navbar .nav-link:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
 }
 .nav-link.nav-link-sep:after {
     content: "|";
@@ -59,6 +69,11 @@ header .nav-link{
 
 li > .dropdown-toggle:focus{
     color: var(--primary-color) !important;
+}
+
+li > .dropdown-toggle:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
 }
 
 .dropdown-menu {
@@ -74,6 +89,11 @@ li > .dropdown-toggle:focus{
 
 .dropdown-item:focus, .dropdown-item:active {
     background-color: var(--secondary-color) !important;
+}
+
+.dropdown-item:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
 }
 
 .dropdown-divider {
