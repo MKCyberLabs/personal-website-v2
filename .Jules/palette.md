@@ -188,3 +188,6 @@
 ## 2024-08-05 - Add focus-visible to generic buttons
 **Learning:** Removing default focus rings using `box-shadow: none` or `outline: none` on generic button classes (`.btn`) breaks keyboard navigation accessibility for users tabbing through interactive elements like submit buttons and "Read more" links.
 **Action:** Always provide a `:focus-visible` state with a visible outline when removing the default `:focus` outline or box-shadow to ensure keyboard accessibility.
+## 2024-08-30 - Redundant alt text on card images
+**Learning:** When images are placed inside cards that also display the title of the item as text (e.g., in an `<h5>`), providing the title as the `alt` text for the image causes screen readers to announce the title twice, resulting in a repetitive experience.
+**Action:** Use empty `alt=""` attributes for images within cards when the adjacent text already conveys the same information, treating the image as decorative to streamline screen reader announcements.
