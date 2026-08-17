@@ -312,3 +312,7 @@
 ## 2024-07-18 - Dynamic alt text in list templates
 **Learning:** Hardcoding generic or empty `alt` attributes on images inside iteration loops (like Hugo's `range`) deprives screen reader users of context, especially when the image represents specific content like an achievement or certificate.
 **Action:** When iterating through lists of images in Hugo templates, always use dynamic iteration variables (e.g., `{{ .title }}`) to ensure every image has a unique and descriptive accessible name.
+
+## 2024-05-24 - Focus Visible Fallbacks for Interactive Sidebar and Nav Elements
+**Learning:** When styling custom interactive elements like sidebar components (tags, TOC, social links), dropdown items, nav-links, and clickable cards, default browser focus outlines are often overridden or hidden.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.

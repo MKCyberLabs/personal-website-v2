@@ -336,3 +336,14 @@ header .nav-link:focus-visible {
     outline-offset: -2px;
     background-color: var(--secondary-color) !important;
 }
+    outline: none;
+    color: var(--primary-color) !important;
+}
+
+header .navbar .navbar-nav a:focus-visible,
+header .nav-link:focus-visible,
+.dropdown-item:focus-visible {
+    outline: 2px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--primary-color);
+    border-radius: 4px;
+}
