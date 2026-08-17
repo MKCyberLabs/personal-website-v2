@@ -308,3 +308,7 @@
 ## 2024-08-20 - Descriptive alt text for profile image in About section
 **Learning:** Hardcoding `alt="Profile image"` provides poor context to screen reader users about who is pictured in the About section.
 **Action:** Always provide descriptive alt text for profile images by leveraging template variables (e.g., `alt='{{ print "Profile image of " .Site.Title }}'`) to ensure the user's name is announced.
+
+## 2024-07-18 - Dynamic alt text in list templates
+**Learning:** Hardcoding generic or empty `alt` attributes on images inside iteration loops (like Hugo's `range`) deprives screen reader users of context, especially when the image represents specific content like an achievement or certificate.
+**Action:** When iterating through lists of images in Hugo templates, always use dynamic iteration variables (e.g., `{{ .title }}`) to ensure every image has a unique and descriptive accessible name.
