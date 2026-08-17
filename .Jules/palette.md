@@ -236,3 +236,7 @@
 ## 2024-08-25 - Focus-visible for clickable cards
 **Learning:** Making entire cards clickable (like in the achievements section via `a.card`) is a common UX pattern, but removing or neglecting the focus outline breaks keyboard navigation accessibility because the card doesn't visually indicate it's focused.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline on custom focusable container elements (like clickable cards) to ensure keyboard users can track their focus.
+
+## 2024-08-25 - Add focus-visible to alert close buttons
+**Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) may lack proper focus indicators when default styles are overridden.
+**Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility.

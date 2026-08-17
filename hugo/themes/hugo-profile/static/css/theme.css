@@ -62,11 +62,15 @@ body *::selection {
 
 /* Ensure generic buttons have a focus-visible state to improve accessibility */
 .btn:focus, .btn-close:focus {
+.btn:focus,
+.btn-close:focus {
     box-shadow: none;
     outline: none;
 }
 
 .btn:focus-visible, .btn-close:focus-visible {
+.btn:focus-visible,
+.btn-close:focus-visible {
     outline: 2px solid var(--primary-color) !important;
     box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
     border-radius: 4px;
