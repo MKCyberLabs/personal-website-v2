@@ -254,3 +254,7 @@
 ## 2024-08-25 - Add focus-visible to dynamically injected UI components
 **Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) may lack proper focus indicators when default styles are overridden, leading to poor keyboard navigation accessibility.
 **Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility for these dynamic elements.
+
+## 2024-08-22 - Add focus-visible to top-level navigation links
+**Learning:** Explicitly relying only on hover states for top-level navigation links (like `.navbar .nav-link`) leaves keyboard users without a clear focus indicator, negatively impacting keyboard navigation accessibility.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline for navigation links to ensure keyboard users can track their focus.
