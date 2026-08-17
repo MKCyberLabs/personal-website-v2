@@ -244,3 +244,7 @@
 ## 2024-08-13 - Add focus-visible to alert close buttons
 **Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) often lack proper focus indicators when default browser styles are overridden. This makes it difficult for keyboard users to see when the close button has focus.
 **Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS for utility classes like `.btn-close` to maintain keyboard navigation accessibility.
+
+## 2024-08-07 - Add focus-visible to dynamic alert buttons
+**Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) may lack proper focus indicators when default styles are overridden.
+**Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility.
