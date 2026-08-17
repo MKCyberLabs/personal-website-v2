@@ -112,6 +112,8 @@ body *::selection {
 }
 
 .btn-close:focus-visible {
+.btn:focus-visible,
+.btn-close:focus-visible {
     outline: 2px solid var(--primary-color) !important;
     box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
     border-radius: 4px;
