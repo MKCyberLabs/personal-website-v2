@@ -294,3 +294,7 @@
 ## 2024-05-24 - Explicit Focus for Custom Elements
 **Learning:** Span elements masquerading as buttons (`role="button" tabindex="0"`) in tooltips don't inherit global `.btn` focus styles, leaving keyboard users without visible focus indicators.
 **Action:** Always explicitly define `:focus-visible` fallback styles (e.g., `outline: 2px solid`) when building custom interactive elements to ensure keyboard accessibility.
+
+## 2024-08-25 - Add focus-visible to dynamic alert close buttons
+**Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) may lack proper focus indicators when default styles are overridden, making them inaccessible to keyboard users.
+**Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility for dynamically generated interactive elements.
