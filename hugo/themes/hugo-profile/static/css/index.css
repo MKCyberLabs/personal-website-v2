@@ -928,6 +928,8 @@ header .navbar.animate {
     outline-offset: 2px;
     border-radius: 2px;
 #experience span[role="button"][tabindex="0"]:focus-visible {
+/* Accessibility: Focus visible for custom tooltip buttons */
+#experience .tab-pane span[role="button"]:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
     border-radius: 4px;
