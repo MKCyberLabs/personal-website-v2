@@ -228,3 +228,7 @@
 ## 2024-08-20 - Descriptive alt text for about section profile image
 **Learning:** Hardcoding generic `alt` attributes like "Profile image" in the about section provides poor context for screen readers. Using dynamic variables like `.Site.Title` significantly improves the accessibility and context of the image.
 **Action:** Always provide descriptive and dynamic `alt` text for images representing the user or site, such as `alt='{{ print "Profile image of " .Site.Title }}'`.
+
+## 2024-08-20 - [Accessible Interactive Tooltips]
+**Learning:** When styling custom interactive elements like tooltips (e.g., `<span role="button" tabindex="0">`), always explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline for elements with `role="button"` and `tabindex` to ensure users tabbing through elements can track their focus.
