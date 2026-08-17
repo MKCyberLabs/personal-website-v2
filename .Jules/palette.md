@@ -328,3 +328,11 @@
 ## 2026-08-01 - Add focus-visible to dynamic alert close buttons
 **Learning:** Dynamically injected elements (like alert close buttons) using Bootstrap's `.btn-close` often lack a visible focus indicator when overriding default styles, making them inaccessible to keyboard users tabbing through alerts.
 **Action:** Always ensure dynamically generated UI components, particularly those using utility classes like `.btn-close`, have an explicit `:focus-visible` fallback in the global theme CSS.
+
+## 2024-08-17 - Add focus-visible to interactive span tooltips
+**Learning:** Custom interactive elements like tooltips (e.g., `<span role="button" tabindex="0">`) must explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline on custom interactive components like tooltips to ensure users tabbing through elements can track their focus.
+
+## 2024-08-17 - Avoid generic hardcoded alt text for profile images
+**Learning:** Hardcoding generic `alt` attributes like `alt="Profile image"` provides poor and repetitive context to screen reader users across a site.
+**Action:** Always use dynamic template variables, such as `alt='{{ print "Profile image of " .Site.Title }}'`, to provide clear, contextually relevant alt text for user or site images.
