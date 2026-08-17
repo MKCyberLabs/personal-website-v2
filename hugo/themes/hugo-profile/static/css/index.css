@@ -768,4 +768,8 @@ header .navbar.animate {
 #achievements .card:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+#achievements .card:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+    border-radius: 1rem;
 }

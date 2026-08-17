@@ -266,3 +266,7 @@
 ## 2024-09-01 - Add focus-visible to custom dropdowns and interactive cards
 **Learning:** Custom interactive elements like dropdown items and clickable cards often lack a visible focus state when tabbed via keyboard, breaking accessibility.
 **Action:** Always explicitly define a `:focus-visible` state with a clear outline or box-shadow for custom interactive UI components to ensure keyboard navigation accessibility.
+
+## 2024-08-16 - Add focus-visible to sidebar elements and custom links
+**Learning:** Custom styled sidebar elements (like Tags, Table of Contents, Social Share links) and custom card links (like `#achievements a.card`) often lack explicitly defined focus states. Additionally, main navigation links may not have clear focus outlines. This makes keyboard navigation difficult for users to track visually when tabbing through the page content.
+**Action:** Always provide a `:focus-visible` state with a visible outline (and optionally `outline-offset` or `border-radius`) on custom interactive elements (like sidebars, nav-links, dropdown-items, and card links) to ensure keyboard users can easily track their focus when tabbing through the page.

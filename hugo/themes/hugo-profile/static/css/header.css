@@ -209,4 +209,18 @@ li > .dropdown-toggle:focus{
 .dropdown-item:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+    outline: none;
+    color: var(--primary-color) !important;
+}
+
+header .nav-link:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.dropdown-item:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
+    background-color: var(--secondary-color) !important;
 }
