@@ -262,3 +262,7 @@
 ## 2024-08-25 - Add focus-visible to custom UI components
 **Learning:** Custom interactive elements like sidebar components (tags, TOC, social links), dropdown items, nav-links, and clickable cards often lack native focus rings when selected via keyboard, which negatively impacts accessibility.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline on custom focusable elements to ensure users tabbing through elements can track their focus.
+
+## 2024-09-01 - Add focus-visible to custom dropdowns and interactive cards
+**Learning:** Custom interactive elements like dropdown items and clickable cards often lack a visible focus state when tabbed via keyboard, breaking accessibility.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline or box-shadow for custom interactive UI components to ensure keyboard navigation accessibility.
