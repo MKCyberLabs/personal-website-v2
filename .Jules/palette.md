@@ -278,3 +278,7 @@
 ## 2024-08-16 - Add focus-visible to custom interactive elements
 **Learning:** When styling custom interactive elements like tooltips (e.g., `<span role="button" tabindex="0">`), always explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.
 **Action:** Always explicitly define a `:focus-visible` state with a clear outline on custom interactive elements to ensure keyboard users can track their focus.
+
+## 2024-08-20 - Add focus-visible to custom tooltips and dropdown items
+**Learning:** Custom interactive elements like tooltips (`<span role="button" tabindex="0">`) and dropdown items can lose keyboard focus visibility if their default outlines are removed or not specified alongside custom focus styles.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline/box-shadow on custom interactive elements (like tooltips and dropdown items) to ensure robust keyboard navigation accessibility.
