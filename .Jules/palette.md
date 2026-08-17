@@ -316,3 +316,7 @@
 ## 2024-05-24 - Focus Visible Fallbacks for Interactive Sidebar and Nav Elements
 **Learning:** When styling custom interactive elements like sidebar components (tags, TOC, social links), dropdown items, nav-links, and clickable cards, default browser focus outlines are often overridden or hidden.
 **Action:** Always explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.
+
+## 2026-07-23 - Redundant Image Alt Text in Cards
+**Learning:** When images are placed inside cards that already contain adjacent heading text (like `<h5>`) providing the same context, using dynamic variables for `alt` attributes causes redundant screen reader announcements.
+**Action:** Leave `alt=""` empty for images within cards or links where the exact same text is already present and accessible nearby.
