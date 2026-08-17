@@ -286,3 +286,7 @@
 ## 2024-08-22 - Add focus-visible to navigation links and dropdowns
 **Learning:** Custom navigation links (`.nav-link`) and dropdown toggles (`.dropdown-toggle`, `.dropdown-item`) often have default outlines disabled. This breaks keyboard accessibility by leaving users without a clear focus indicator when tabbing through the top navigation bar.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline on custom navigation and dropdown elements to ensure users tabbing through elements can track their focus.
+
+## 2024-08-25 - Add focus-visible to dynamically injected alert close buttons
+**Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) may lack proper focus indicators when default styles are overridden.
+**Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility.
