@@ -258,3 +258,7 @@
 ## 2024-08-22 - Add focus-visible to top-level navigation links
 **Learning:** Explicitly relying only on hover states for top-level navigation links (like `.navbar .nav-link`) leaves keyboard users without a clear focus indicator, negatively impacting keyboard navigation accessibility.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline for navigation links to ensure keyboard users can track their focus.
+
+## 2024-08-25 - Add focus-visible to custom UI components
+**Learning:** Custom interactive elements like sidebar components (tags, TOC, social links), dropdown items, nav-links, and clickable cards often lack native focus rings when selected via keyboard, which negatively impacts accessibility.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline on custom focusable elements to ensure users tabbing through elements can track their focus.
