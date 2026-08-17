@@ -282,3 +282,7 @@
 ## 2024-08-20 - Add focus-visible to custom tooltips and dropdown items
 **Learning:** Custom interactive elements like tooltips (`<span role="button" tabindex="0">`) and dropdown items can lose keyboard focus visibility if their default outlines are removed or not specified alongside custom focus styles.
 **Action:** Always explicitly define a `:focus-visible` state with a clear outline/box-shadow on custom interactive elements (like tooltips and dropdown items) to ensure robust keyboard navigation accessibility.
+
+## 2024-08-22 - Add focus-visible to navigation links and dropdowns
+**Learning:** Custom navigation links (`.nav-link`) and dropdown toggles (`.dropdown-toggle`, `.dropdown-item`) often have default outlines disabled. This breaks keyboard accessibility by leaving users without a clear focus indicator when tabbing through the top navigation bar.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline on custom navigation and dropdown elements to ensure users tabbing through elements can track their focus.
