@@ -60,82 +60,14 @@ body *::selection {
     background-color: var(--primary-color) !important;
 }
 
-/* Ensure generic buttons have a focus-visible state to improve accessibility */
-.btn:focus, .btn-close:focus {
+/* Ensure generic buttons and close buttons have a focus-visible state to improve accessibility */
 .btn:focus,
 .btn-close:focus {
     box-shadow: none;
     outline: none;
 }
 
-.btn:focus-visible, .btn-close:focus-visible {
 .btn:focus-visible,
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-    border-radius: 4px;
-}
-
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-/* Ensure dynamically injected buttons have a focus-visible state to improve accessibility */
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-    border-radius: 4px;
-}
-
-/* Ensure dynamic utility buttons like btn-close have a focus-visible state to improve accessibility */
-.btn-close:focus {
-    box-shadow: none;
-    outline: none;
-}
-
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-    border-radius: 4px;
-}
-
-/* Ensure close buttons have a focus-visible state to improve accessibility */
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-    border-radius: 4px;
-}
-
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-    border-radius: 4px;
-}
-
-.btn-close:focus-visible {
-.btn:focus-visible,
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-    border-radius: 4px;
-}
-
-.btn-close:focus {
-    box-shadow: none;
-    outline: none;
-}
-
-.btn-close:focus-visible {
-    outline: 2px solid var(--primary-color) !important;
-    box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
-    border-radius: 4px;
-}
-
-
-/* Add focus-visible to btn-close */
-.btn-close:focus {
-    box-shadow: none;
-    outline: none;
-}
 .btn-close:focus-visible {
     outline: 2px solid var(--primary-color) !important;
     box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
