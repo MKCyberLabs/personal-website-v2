@@ -220,3 +220,7 @@
 ## 2024-08-25 - Add focus-visible to custom dropdown items
 **Learning:** Custom dropdown items often have custom background colors on focus/active states, but they may lack a clear focus ring, making keyboard navigation difficult to track.
 **Action:** Always provide an explicit `:focus-visible` fallback with a visible outline on custom interactive components like dropdown items to ensure users tabbing through elements can clearly see their focus.
+
+## 2024-08-30 - Redundant alt text on card images
+**Learning:** When images are placed inside cards that also display the title of the item as text (e.g., in an `<h5>`), providing the title as the `alt` text for the image causes screen readers to announce the title twice, resulting in a repetitive experience.
+**Action:** Use empty `alt=""` attributes for images within cards when the adjacent text already conveys the same information, treating the image as decorative to streamline screen reader announcements.
