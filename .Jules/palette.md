@@ -274,3 +274,7 @@
 ## 2024-08-20 - Add focus-visible to custom interactive tooltip elements
 **Learning:** Explicitly creating interactive elements using `role="button"` and `tabindex="0"` on non-native controls like `span` tags can break keyboard accessibility if a specific `:focus-visible` state isn't provided. This leaves keyboard users without a clear focus indicator when tabbing.
 **Action:** Always explicitly define a `:focus-visible` state with a clear outline when styling custom interactive elements like tooltips, ensuring keyboard navigation accessibility.
+
+## 2024-08-16 - Add focus-visible to custom interactive elements
+**Learning:** When styling custom interactive elements like tooltips (e.g., `<span role="button" tabindex="0">`), always explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline on custom interactive elements to ensure keyboard users can track their focus.
