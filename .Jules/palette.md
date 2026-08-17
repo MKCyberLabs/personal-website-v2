@@ -232,3 +232,7 @@
 ## 2024-08-20 - [Accessible Interactive Tooltips]
 **Learning:** When styling custom interactive elements like tooltips (e.g., `<span role="button" tabindex="0">`), always explicitly define a `:focus-visible` state with a clear outline to ensure keyboard navigation accessibility.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline for elements with `role="button"` and `tabindex` to ensure users tabbing through elements can track their focus.
+
+## 2024-08-25 - Focus-visible for clickable cards
+**Learning:** Making entire cards clickable (like in the achievements section via `a.card`) is a common UX pattern, but removing or neglecting the focus outline breaks keyboard navigation accessibility because the card doesn't visually indicate it's focused.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline on custom focusable container elements (like clickable cards) to ensure keyboard users can track their focus.
