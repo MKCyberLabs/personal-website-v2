@@ -224,3 +224,7 @@
 ## 2024-08-30 - Redundant alt text on card images
 **Learning:** When images are placed inside cards that also display the title of the item as text (e.g., in an `<h5>`), providing the title as the `alt` text for the image causes screen readers to announce the title twice, resulting in a repetitive experience.
 **Action:** Use empty `alt=""` attributes for images within cards when the adjacent text already conveys the same information, treating the image as decorative to streamline screen reader announcements.
+
+## 2024-08-20 - Descriptive alt text for about section profile image
+**Learning:** Hardcoding generic `alt` attributes like "Profile image" in the about section provides poor context for screen readers. Using dynamic variables like `.Site.Title` significantly improves the accessibility and context of the image.
+**Action:** Always provide descriptive and dynamic `alt` text for images representing the user or site, such as `alt='{{ print "Profile image of " .Site.Title }}'`.
