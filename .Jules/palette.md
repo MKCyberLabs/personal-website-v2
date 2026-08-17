@@ -320,3 +320,7 @@
 ## 2026-07-23 - Redundant Image Alt Text in Cards
 **Learning:** When images are placed inside cards that already contain adjacent heading text (like `<h5>`) providing the same context, using dynamic variables for `alt` attributes causes redundant screen reader announcements.
 **Action:** Leave `alt=""` empty for images within cards or links where the exact same text is already present and accessible nearby.
+
+## 2024-08-18 - Add focus-visible to custom navigation and sidebar elements
+**Learning:** When styling custom interactive elements like sidebar components (tags, TOC, social links), dropdown items, nav-links, and clickable cards, explicit `:focus-visible` states are often missing, breaking keyboard navigation accessibility.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline on custom interactive components (like `.dropdown-item`, `.nav-link`, and sidebar links) to ensure keyboard navigation accessibility.
