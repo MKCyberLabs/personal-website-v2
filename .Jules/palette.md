@@ -300,5 +300,7 @@
 **Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility for dynamically generated interactive elements.
 
 ## 2024-08-25 - Add focus-visible to dynamic alert close buttons
+
+## 2024-08-25 - Add focus-visible to dynamically injected UI components
 **Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) may lack proper focus indicators when default styles are overridden.
 **Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility.
