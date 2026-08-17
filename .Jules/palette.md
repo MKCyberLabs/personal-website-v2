@@ -304,3 +304,7 @@
 ## 2024-08-25 - Add focus-visible to dynamically injected UI components
 **Learning:** Dynamically injected UI components (such as alert close buttons using Bootstrap's `.btn-close`) may lack proper focus indicators when default styles are overridden.
 **Action:** Always add an explicit `:focus-visible` fallback in the global theme CSS to maintain keyboard navigation accessibility.
+
+## 2024-08-20 - Descriptive alt text for profile image in About section
+**Learning:** Hardcoding `alt="Profile image"` provides poor context to screen reader users about who is pictured in the About section.
+**Action:** Always provide descriptive alt text for profile images by leveraging template variables (e.g., `alt='{{ print "Profile image of " .Site.Title }}'`) to ensure the user's name is announced.
