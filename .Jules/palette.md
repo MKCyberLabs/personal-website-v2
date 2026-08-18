@@ -336,3 +336,7 @@
 ## 2024-08-17 - Avoid generic hardcoded alt text for profile images
 **Learning:** Hardcoding generic `alt` attributes like `alt="Profile image"` provides poor and repetitive context to screen reader users across a site.
 **Action:** Always use dynamic template variables, such as `alt='{{ print "Profile image of " .Site.Title }}'`, to provide clear, contextually relevant alt text for user or site images.
+
+## 2024-08-20 - Add focus-visible to custom interactive tooltip elements
+**Learning:** Explicitly creating interactive elements using `role="button"` and `tabindex="0"` on non-native controls like `span` tags can break keyboard accessibility if a specific `:focus-visible` state isn't provided. This leaves keyboard users without a clear focus indicator when tabbing.
+**Action:** Always explicitly define a `:focus-visible` state with a clear outline when styling custom interactive elements like tooltips, ensuring keyboard navigation accessibility.

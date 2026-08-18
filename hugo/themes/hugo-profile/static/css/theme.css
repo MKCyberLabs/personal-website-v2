@@ -73,3 +73,21 @@ body *::selection {
     box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
     border-radius: 4px;
 }
+
+span[data-bs-toggle="tooltip"]:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 50%;
+    outline-offset: 2px;
+}
+
+span[data-bs-toggle="tooltip"]:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
+    outline-offset: 2px;
+}
+
+span[data-bs-toggle="tooltip"]:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
+    outline-offset: 2px;
+}
