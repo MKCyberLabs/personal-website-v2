@@ -336,3 +336,7 @@
 ## 2024-08-17 - Avoid generic hardcoded alt text for profile images
 **Learning:** Hardcoding generic `alt` attributes like `alt="Profile image"` provides poor and repetitive context to screen reader users across a site.
 **Action:** Always use dynamic template variables, such as `alt='{{ print "Profile image of " .Site.Title }}'`, to provide clear, contextually relevant alt text for user or site images.
+
+## 2024-08-27 - Remove redundant alt text from images adjacent to matching headings
+**Learning:** When images are placed inside cards or links that already contain adjacent heading text (like `<h5>`) providing the identical context (e.g., `{{ .title }}`), specifying the same value for the image `alt` attribute causes redundant screen reader announcements (e.g., "Image Title, Image Title").
+**Action:** Always set `alt=""` for images within components where the exact same descriptive text is visually available and accessible nearby, marking the image as decorative.
