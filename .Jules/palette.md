@@ -336,3 +336,7 @@
 ## 2024-08-17 - Avoid generic hardcoded alt text for profile images
 **Learning:** Hardcoding generic `alt` attributes like `alt="Profile image"` provides poor and repetitive context to screen reader users across a site.
 **Action:** Always use dynamic template variables, such as `alt='{{ print "Profile image of " .Site.Title }}'`, to provide clear, contextually relevant alt text for user or site images.
+
+## 2024-08-27 - Redundant aria-labels on navigation links
+**Learning:** Hardcoding `aria-label` attributes on navigation links that pull their visible text from dynamic site parameters is an accessibility anti-pattern. It forces screen readers to announce the hardcoded label, completely overriding the customizable or translated visible text, which violates WCAG guidelines and breaks speech-to-text navigation.
+**Action:** Never use static `aria-label`s on navigation links when the visible text is dynamic or sufficient on its own. Let the native visible text serve as the accessible name.
