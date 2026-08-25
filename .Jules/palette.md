@@ -336,3 +336,7 @@
 ## 2024-08-17 - Avoid generic hardcoded alt text for profile images
 **Learning:** Hardcoding generic `alt` attributes like `alt="Profile image"` provides poor and repetitive context to screen reader users across a site.
 **Action:** Always use dynamic template variables, such as `alt='{{ print "Profile image of " .Site.Title }}'`, to provide clear, contextually relevant alt text for user or site images.
+
+## 2024-10-26 - Avoid overriding dynamic nav links with static aria-labels
+**Learning:** Applying a static `aria-label` (e.g., `aria-label="about"`) to a navigation link that contains dynamic or customizable visible text (e.g., `{{ .Site.Params.about.title }}`) is an accessibility anti-pattern. It overrides the visible text for screen readers, causing confusion.
+**Action:** Only use `aria-label` when visible text is absent or insufficient. Remove static `aria-label`s from text-based navigation links.
