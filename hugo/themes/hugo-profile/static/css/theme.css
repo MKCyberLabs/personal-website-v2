@@ -79,3 +79,19 @@ span[data-bs-toggle="tooltip"]:focus-visible {
     border-radius: 4px;
     outline-offset: 2px;
 }
+
+.nav-link:focus,
+.dropdown-item:focus,
+.card a:focus,
+.nav-pills .nav-link:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.nav-link:focus-visible,
+.dropdown-item:focus-visible,
+.card a:focus-visible,
+.nav-pills .nav-link:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    border-radius: 4px;
+}

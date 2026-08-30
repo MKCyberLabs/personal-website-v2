@@ -343,3 +343,7 @@
 ## 2024-05-20 - Redundant Alt Text in Cards
 **Learning:** When an image is wrapped in a link or card alongside adjacent text providing the same context (e.g., a card title), providing a descriptive `alt` attribute on the image causes screen readers to redundantly announce the same information twice.
 **Action:** Use empty `alt=""` attributes for images in these contexts to prevent repetitive screen reader announcements.
+
+## 2024-09-03 - Add focus-visible to custom nav links and cards
+**Learning:** Custom interactive elements like `.nav-link`, `.dropdown-item`, and clickable cards (`.card a`) often lack explicitly defined focus states when their default styles are overridden, making keyboard navigation difficult to track.
+**Action:** Always provide a `:focus-visible` state with a visible outline on custom interactive components to ensure keyboard navigation accessibility.
