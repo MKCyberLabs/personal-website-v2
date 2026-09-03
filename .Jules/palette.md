@@ -344,6 +344,10 @@
 **Learning:** When an image is wrapped in a link or card alongside adjacent text providing the same context (e.g., a card title), providing a descriptive `alt` attribute on the image causes screen readers to redundantly announce the same information twice.
 **Action:** Use empty `alt=""` attributes for images in these contexts to prevent repetitive screen reader announcements.
 
+## 2024-09-03 - Add focus-visible to custom nav links and cards
+**Learning:** Custom interactive elements like `.nav-link`, `.dropdown-item`, and clickable cards (`.card a`) often lack explicitly defined focus states when their default styles are overridden, making keyboard navigation difficult to track.
+**Action:** Always provide a `:focus-visible` state with a visible outline on custom interactive components to ensure keyboard navigation accessibility.
+
 ## 2024-11-20 - Add focus-visible to form controls
 **Learning:** explicitly setting `outline: none;` for focus on input elements without adding a `:focus-visible` fallback breaks keyboard navigation accessibility because users tabbing into input elements will not see any focus indicator.
 **Action:** Always explicitly define a `:focus-visible` state with a clear outline or box-shadow (or both) for form controls (`.form-control`) when removing the default `:focus` outline to ensure keyboard users can track their focus into inputs and textareas.

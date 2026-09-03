@@ -80,7 +80,6 @@ span[data-bs-toggle="tooltip"]:focus-visible {
     outline-offset: 2px;
 }
 
-
 .form-control:focus {
     box-shadow: none;
     outline: none;
@@ -89,5 +88,20 @@ span[data-bs-toggle="tooltip"]:focus-visible {
 .form-control:focus-visible {
     outline: 2px solid var(--primary-color) !important;
     box-shadow: 0 0 0 4px var(--secondary-background-color) !important;
+}
+
+.nav-link:focus,
+.dropdown-item:focus,
+.card a:focus,
+.nav-pills .nav-link:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.nav-link:focus-visible,
+.dropdown-item:focus-visible,
+.card a:focus-visible,
+.nav-pills .nav-link:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
     border-radius: 4px;
 }
