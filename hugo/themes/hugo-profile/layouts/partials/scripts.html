@@ -35,11 +35,26 @@
         if (document.body.className.includes("dark")) {
             document.body.classList.remove('dark');
             localStorage.setItem("pref-theme", 'light');
+            document.getElementById("theme-toggle").setAttribute("aria-label", "Toggle dark mode");
+            document.getElementById("theme-toggle").setAttribute("title", "Toggle dark mode");
         } else {
             document.body.classList.add('dark');
             localStorage.setItem("pref-theme", 'dark');
+            document.getElementById("theme-toggle").setAttribute("aria-label", "Toggle light mode");
+            document.getElementById("theme-toggle").setAttribute("title", "Toggle light mode");
         }
     })
+
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const themeToggle = document.getElementById("theme-toggle");
+        if (themeToggle) {
+            if (document.body.className.includes("dark")) {
+                themeToggle.setAttribute("aria-label", "Toggle light mode");
+                themeToggle.setAttribute("title", "Toggle light mode");
+            }
+        }
+    });
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
