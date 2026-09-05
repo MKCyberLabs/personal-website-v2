@@ -351,3 +351,6 @@
 ## 2024-11-20 - Add focus-visible to form controls
 **Learning:** explicitly setting `outline: none;` for focus on input elements without adding a `:focus-visible` fallback breaks keyboard navigation accessibility because users tabbing into input elements will not see any focus indicator.
 **Action:** Always explicitly define a `:focus-visible` state with a clear outline or box-shadow (or both) for form controls (`.form-control`) when removing the default `:focus` outline to ensure keyboard users can track their focus into inputs and textareas.
+## 2024-09-04 - Remove redundant visually hidden required text from form inputs
+**Learning:** When form inputs use the native HTML `required` attribute, modern screen readers will natively and automatically announce that these form fields are mandatory. Leaving visually hidden "Required" text inside the label causes screen readers to redundantly announce the state (e.g., reading out "Email Required, required, edit text").
+**Action:** When form inputs use the native HTML `required` attribute, avoid adding redundant visually hidden 'Required' text or exposing visual indicators (like asterisks) to screen readers. Hide visual asterisks using `aria-hidden="true"` to prevent duplicate announcements.
