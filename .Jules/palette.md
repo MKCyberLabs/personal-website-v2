@@ -354,3 +354,7 @@
 ## 2024-09-04 - Remove redundant visually hidden required text from form inputs
 **Learning:** When form inputs use the native HTML `required` attribute, modern screen readers will natively and automatically announce that these form fields are mandatory. Leaving visually hidden "Required" text inside the label causes screen readers to redundantly announce the state (e.g., reading out "Email Required, required, edit text").
 **Action:** When form inputs use the native HTML `required` attribute, avoid adding redundant visually hidden 'Required' text or exposing visual indicators (like asterisks) to screen readers. Hide visual asterisks using `aria-hidden="true"` to prevent duplicate announcements.
+
+## 2024-11-20 - Dynamic ARIA labels for theme toggles
+**Learning:** Hardcoding accessibility strings in theme toggle buttons (like always saying "Toggle dark mode") is a common failure point because the action changes based on the state. The string must be fully dynamic.
+**Action:** When working on dynamic theme toggles, ensure the `aria-label` and `title` for the button update according to the state (e.g., "Toggle light mode" when dark mode is active).
