@@ -46,11 +46,15 @@
     })
 
     function updateThemeToggleAriaLabel() {
-        const isDark = document.body.className.includes("dark");
-        document.getElementById("theme-toggle").setAttribute("aria-label", isDark ? "Toggle light mode" : "Toggle dark mode");
-        document.getElementById("theme-toggle").setAttribute("title", isDark ? "Toggle light mode" : "Toggle dark mode");
+        const themeToggle = document.getElementById("theme-toggle");
+        if (themeToggle) {
+            const isDark = document.body.className.includes("dark");
+            themeToggle.setAttribute("aria-label", isDark ? "Toggle light mode" : "Toggle dark mode");
+            themeToggle.setAttribute("title", isDark ? "Toggle light mode" : "Toggle dark mode");
+        }
     }
     updateThemeToggleAriaLabel();
+    window.addEventListener("DOMContentLoaded", updateThemeToggleAriaLabel);
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
