@@ -105,3 +105,7 @@ span[data-bs-toggle="tooltip"]:focus-visible {
     outline: 2px solid var(--primary-color) !important;
     border-radius: 4px;
 }
+
+.social-icon:focus-visible {
+  outline: 2px solid var(--text-color);
+}

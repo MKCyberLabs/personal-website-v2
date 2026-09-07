@@ -362,3 +362,6 @@
 ## 2024-11-20 - Dynamic ARIA labels for theme toggles
 **Learning:** Hardcoding accessibility strings in theme toggle buttons (like always saying "Toggle dark mode") is a common failure point because the action changes based on the state. The string must be fully dynamic.
 **Action:** When working on dynamic theme toggles, ensure the `aria-label` and `title` for the button update according to the state (e.g., "Toggle light mode" when dark mode is active).
+## 2024-11-20 - Add focus-visible to social icons
+**Learning:** Custom `.social-icon` buttons in the hero section often lack explicit focus indicators when default button styles are overridden, making keyboard navigation difficult to track.
+**Action:** Always provide an explicit `:focus-visible` fallback in the global theme CSS to ensure keyboard navigation accessibility for social icon links.
