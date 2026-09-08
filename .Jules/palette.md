@@ -365,3 +365,6 @@
 ## 2024-11-20 - Add focus-visible to social icons
 **Learning:** Custom `.social-icon` buttons in the hero section often lack explicit focus indicators when default button styles are overridden, making keyboard navigation difficult to track.
 **Action:** Always provide an explicit `:focus-visible` fallback in the global theme CSS to ensure keyboard navigation accessibility for social icon links.
+## 2024-11-20 - Unique DOM IDs in template loops
+**Learning:** Hardcoding DOM IDs (e.g., `id='{{ .company }}-tab'`) inside Hugo `range` loops based on non-unique variables can cause duplicate DOM IDs (e.g. if a user works at the same company twice). This breaks ARIA relationships like `aria-controls` and `aria-labelledby`, completely breaking screen reader navigation for tab panels.
+**Action:** In Hugo templates, always ensure DOM IDs generated inside `range` loops are unique by incorporating the loop index (e.g., `id='experience-{{ $index }}-{{ .company }}-tab'`).

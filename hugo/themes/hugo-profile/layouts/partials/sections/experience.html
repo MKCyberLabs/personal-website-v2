@@ -15,9 +15,9 @@
                                 role="tab"
                                 type="button"
                                 data-bs-toggle="pill"
-                                id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
-                                data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                                aria-controls='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                id='experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
+                                data-bs-target='#pills-experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                aria-controls='pills-experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
                             >
                                 {{ .company }}
                             </button>
@@ -30,9 +30,9 @@
                                 role="tab"
                                 type="button"
                                 data-bs-toggle="pill"
-                                id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
-                                data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                                aria-controls='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                id='experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
+                                data-bs-target='#pills-experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                aria-controls='pills-experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
                             >
                                 {{ .company }}
                             </button>
@@ -46,8 +46,8 @@
                         <div
                             class="tab-pane fade show active bg-transparent"
                             role="tabpanel"
-                            id='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                            aria-labelledby='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
+                            id='pills-experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                            aria-labelledby='experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
                         >
                             <div>
                                 <span class="h4">{{ .job }}</span>
@@ -88,8 +88,8 @@
                         <div
                             class="tab-pane fade bg-transparent"
                             role="tabpanel"
-                            id='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                            aria-labelledby='pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
+                            id='pills-experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                            aria-labelledby='experience-{{ $index }}-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
                         >
                             <div>
                                 <span class="h4">{{ .job }}</span>
