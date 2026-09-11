@@ -368,3 +368,7 @@
 ## 2024-11-20 - Unique DOM IDs in template loops
 **Learning:** Hardcoding DOM IDs (e.g., `id='{{ .company }}-tab'`) inside Hugo `range` loops based on non-unique variables can cause duplicate DOM IDs (e.g. if a user works at the same company twice). This breaks ARIA relationships like `aria-controls` and `aria-labelledby`, completely breaking screen reader navigation for tab panels.
 **Action:** In Hugo templates, always ensure DOM IDs generated inside `range` loops are unique by incorporating the loop index (e.g., `id='experience-{{ $index }}-{{ .company }}-tab'`).
+
+## 2024-11-20 - Add focus-visible to pagination links
+**Learning:** Custom pagination links (`.page-link`) often lack explicitly defined focus states when their default styles are overridden, making keyboard navigation difficult to track for users tabbing through pages.
+**Action:** Always provide a `:focus-visible` fallback with a visible outline on `.page-link` elements to ensure keyboard navigation accessibility.

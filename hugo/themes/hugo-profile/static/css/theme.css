@@ -109,3 +109,14 @@ span[data-bs-toggle="tooltip"]:focus-visible {
 .social-icon:focus-visible {
   outline: 2px solid var(--text-color);
 }
+
+.page-link:focus,
+.page-link:focus-visible {
+    box-shadow: none;
+    outline: none;
+}
+
+.page-link:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    border-radius: 4px;
+}
