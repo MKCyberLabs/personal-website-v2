@@ -372,3 +372,7 @@
 ## 2024-11-20 - Add focus-visible to pagination links
 **Learning:** Custom pagination links (`.page-link`) often lack explicitly defined focus states when their default styles are overridden, making keyboard navigation difficult to track for users tabbing through pages.
 **Action:** Always provide a `:focus-visible` fallback with a visible outline on `.page-link` elements to ensure keyboard navigation accessibility.
+
+## 2024-11-20 - Avoid keyboard shortcuts in mobile placeholders
+**Learning:** Hardcoding keyboard shortcuts like 'Ctrl + k to Search...' as the placeholder text for input fields (especially search bars) is confusing for users on mobile devices or touchscreen interfaces where physical keyboards are absent.
+**Action:** When defining placeholder text for input fields that are accessible on mobile devices, use generic and universally applicable text (like 'Search...') rather than hardware-specific shortcuts.
