@@ -376,3 +376,7 @@
 ## 2024-11-20 - Avoid keyboard shortcuts in mobile placeholders
 **Learning:** Hardcoding keyboard shortcuts like 'Ctrl + k to Search...' as the placeholder text for input fields (especially search bars) is confusing for users on mobile devices or touchscreen interfaces where physical keyboards are absent.
 **Action:** When defining placeholder text for input fields that are accessible on mobile devices, use generic and universally applicable text (like 'Search...') rather than hardware-specific shortcuts.
+
+## 2024-05-18 - Mobile Keyboard Context for Search Inputs
+**Learning:** Generic text inputs for search functionality trigger standard software keyboards on mobile devices, which lack intuitive search action keys (like a magnifying glass or 'Go'). Adding `type="search"` immediately optimizes the keyboard layout, improving mobile UX dramatically with almost no code change.
+**Action:** Always specify `type="search"` on search input fields instead of leaving them as default text types to ensure mobile users get the correct keyboard context.
