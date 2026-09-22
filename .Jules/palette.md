@@ -376,3 +376,7 @@
 ## 2024-11-20 - Avoid keyboard shortcuts in mobile placeholders
 **Learning:** Hardcoding keyboard shortcuts like 'Ctrl + k to Search...' as the placeholder text for input fields (especially search bars) is confusing for users on mobile devices or touchscreen interfaces where physical keyboards are absent.
 **Action:** When defining placeholder text for input fields that are accessible on mobile devices, use generic and universally applicable text (like 'Search...') rather than hardware-specific shortcuts.
+
+## 2024-09-23 - Dynamic aria-label for footer brand logo
+**Learning:** Hardcoding static strings like `aria-label="Home"` on navigation brand links or logos limits context for screen reader users and ignores site-specific configurations.
+**Action:** Always use dynamic template variables with a fallback (e.g., `aria-label='{{ .Site.Title | default "Home" }}'`) on brand links to provide screen reader users with precise, site-specific context.
