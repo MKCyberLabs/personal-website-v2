@@ -380,3 +380,7 @@
 ## 2024-09-23 - Dynamic aria-label for footer brand logo
 **Learning:** Hardcoding static strings like `aria-label="Home"` on navigation brand links or logos limits context for screen reader users and ignores site-specific configurations.
 **Action:** Always use dynamic template variables with a fallback (e.g., `aria-label='{{ .Site.Title | default "Home" }}'`) on brand links to provide screen reader users with precise, site-specific context.
+
+## 2024-11-20 - Redundant Alt Text adjacent to Headings
+**Learning:** When images are placed directly adjacent to headings (like an `<h1>` page title or an `<h5>` card title) that provide the exact same context, providing the title as the `alt` text for the image causes screen readers to redundantly announce the title twice in succession, creating a repetitive experience.
+**Action:** Use empty `alt=""` attributes for images when the adjacent text already conveys the identical information, treating the image as decorative to streamline screen reader announcements.
