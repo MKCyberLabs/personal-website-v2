@@ -384,3 +384,8 @@
 ## 2024-05-18 - Mobile Keyboard Context for Search Inputs
 **Learning:** Generic text inputs for search functionality trigger standard software keyboards on mobile devices, which lack intuitive search action keys (like a magnifying glass or 'Go'). Adding `type="search"` immediately optimizes the keyboard layout, improving mobile UX dramatically with almost no code change.
 **Action:** Always specify `type="search"` on search input fields instead of leaving them as default text types to ensure mobile users get the correct keyboard context.
+
+## 2024-11-20 - Redundant Alt Text adjacent to Headings
+**Learning:** When images are placed directly adjacent to headings (like an `<h1>` page title or an `<h5>` card title) that provide the exact same context, providing the title as the `alt` text for the image causes screen readers to redundantly announce the title twice in succession, creating a repetitive experience.
+**Action:** Use empty `alt=""` attributes for images when the adjacent text already conveys the identical information, treating the image as decorative to streamline screen reader announcements.
+
