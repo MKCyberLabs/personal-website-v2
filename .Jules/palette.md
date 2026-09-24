@@ -380,3 +380,7 @@
 ## 2024-09-23 - Dynamic aria-label for footer brand logo
 **Learning:** Hardcoding static strings like `aria-label="Home"` on navigation brand links or logos limits context for screen reader users and ignores site-specific configurations.
 **Action:** Always use dynamic template variables with a fallback (e.g., `aria-label='{{ .Site.Title | default "Home" }}'`) on brand links to provide screen reader users with precise, site-specific context.
+
+## 2024-05-18 - Mobile Keyboard Context for Search Inputs
+**Learning:** Generic text inputs for search functionality trigger standard software keyboards on mobile devices, which lack intuitive search action keys (like a magnifying glass or 'Go'). Adding `type="search"` immediately optimizes the keyboard layout, improving mobile UX dramatically with almost no code change.
+**Action:** Always specify `type="search"` on search input fields instead of leaving them as default text types to ensure mobile users get the correct keyboard context.
