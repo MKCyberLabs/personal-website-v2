@@ -146,6 +146,7 @@ li > .dropdown-toggle:focus-visible {
     border-radius: 1rem !important;
     background-color: var(--background-color) !important;
     transition: .2s;
+    outline: 2px solid var(--primary-color);
 }
 
 #search-results .card a {
