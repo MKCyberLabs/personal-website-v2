@@ -389,3 +389,7 @@
 **Learning:** When images are placed directly adjacent to headings (like an `<h1>` page title or an `<h5>` card title) that provide the exact same context, providing the title as the `alt` text for the image causes screen readers to redundantly announce the title twice in succession, creating a repetitive experience.
 **Action:** Use empty `alt=""` attributes for images when the adjacent text already conveys the identical information, treating the image as decorative to streamline screen reader announcements.
 
+
+## 2024-11-20 - Standardize boolean required attributes
+**Learning:** When working with HTML5 form inputs, always use the standard boolean required attribute instead of non-standard explicit string values like required="true" to ensure valid semantic HTML and prevent potential issues with strict parsers or assistive technologies.
+**Action:** Always use the standard boolean `required` attribute for form fields rather than explicitly setting it to a string value.
