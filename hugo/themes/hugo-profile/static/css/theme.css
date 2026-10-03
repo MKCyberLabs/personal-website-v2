@@ -120,3 +120,8 @@ span[data-bs-toggle="tooltip"]:focus-visible {
     outline: 2px solid var(--primary-color) !important;
     border-radius: 4px;
 }
+
+footer a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    border-radius: 4px;
+}
