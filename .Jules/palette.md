@@ -393,3 +393,7 @@
 ## 2024-11-20 - Standard boolean required attribute
 **Learning:** Using non-standard `required="true"` attributes on form inputs can lead to invalid HTML and confusion, as the standard HTML boolean attribute is simply `required`.
 **Action:** Always use the standard boolean `required` attribute for form inputs instead of explicit string values like `required="true"`.
+
+## 2024-11-20 - Standardize boolean required attributes
+**Learning:** When working with HTML5 form inputs, always use the standard boolean required attribute instead of non-standard explicit string values like required="true" to ensure valid semantic HTML and prevent potential issues with strict parsers or assistive technologies.
+**Action:** Always use the standard boolean `required` attribute for form fields rather than explicitly setting it to a string value.
