@@ -397,6 +397,11 @@
 ## 2024-11-20 - Standardize boolean required attributes
 **Learning:** When working with HTML5 form inputs, always use the standard boolean required attribute instead of non-standard explicit string values like required="true" to ensure valid semantic HTML and prevent potential issues with strict parsers or assistive technologies.
 **Action:** Always use the standard boolean `required` attribute for form fields rather than explicitly setting it to a string value.
+
 ## 2024-11-20 - Add focus-visible fallback to footer links
 **Learning:** Custom footer links (like social icons and text links) often lack explicit focus indicators when default anchor styles are overridden or stripped globally, making keyboard navigation difficult to track.
 **Action:** Always provide an explicitly defined `:focus-visible` fallback in the global theme CSS for `footer a` elements to maintain keyboard navigation accessibility.
+
+## 2024-11-20 - Add focus-visible to footer links
+**Learning:** Custom footer links (like social icons and text links) often lack explicit focus indicators when default anchor styles are overridden or stripped globally, breaking keyboard navigation.
+**Action:** Always provide an explicitly defined `:focus-visible` fallback in the global theme CSS for all `footer a` elements to maintain keyboard navigation accessibility.
