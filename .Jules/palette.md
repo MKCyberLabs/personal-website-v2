@@ -408,3 +408,7 @@
 ## 2024-07-01 - Fix duplicate DOM IDs in Template Loops
 **Learning:** In Hugo templates, avoiding hardcoded DOM IDs inside `range` loops using `replace` with basic string manipulation is crucial for accessibility. Reusing an ID or generating invalid IDs breaks `aria-labelledby` associations. Appending an index and using `urlize` ensures uniqueness and preserves screen reader accessibility.
 **Action:** Always append a unique identifier (like `.company | urlize` or `$index`) to DOM IDs when creating elements inside a Hugo template `range` loop to maintain valid HTML and a11y support.
+
+## 2024-11-20 - Add focus-visible to clickable cards
+**Learning:** Making entire cards clickable (like in the achievements section via `a.card`) is a common UX pattern, but removing or neglecting the focus outline breaks keyboard navigation accessibility because the card doesn't visually indicate it's focused. Furthermore, the selector must correctly target the element itself (e.g., `a.card:focus-visible`) rather than its descendants (e.g., `.card a:focus-visible`).
+**Action:** Always provide a `:focus-visible` fallback with a visible outline on custom focusable container elements (like clickable cards) to ensure keyboard users can track their focus.
