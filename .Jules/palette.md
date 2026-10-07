@@ -405,3 +405,6 @@
 ## 2024-11-20 - Add focus-visible to footer links
 **Learning:** Custom footer links (like social icons and text links) often lack explicit focus indicators when default anchor styles are overridden or stripped globally, breaking keyboard navigation.
 **Action:** Always provide an explicitly defined `:focus-visible` fallback in the global theme CSS for all `footer a` elements to maintain keyboard navigation accessibility.
+## 2024-07-01 - Fix duplicate DOM IDs in Template Loops
+**Learning:** In Hugo templates, avoiding hardcoded DOM IDs inside `range` loops using `replace` with basic string manipulation is crucial for accessibility. Reusing an ID or generating invalid IDs breaks `aria-labelledby` associations. Appending an index and using `urlize` ensures uniqueness and preserves screen reader accessibility.
+**Action:** Always append a unique identifier (like `.company | urlize` or `$index`) to DOM IDs when creating elements inside a Hugo template `range` loop to maintain valid HTML and a11y support.
