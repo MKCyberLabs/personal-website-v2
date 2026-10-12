@@ -412,3 +412,7 @@
 ## 2024-11-20 - Add focus-visible to clickable cards
 **Learning:** Making entire cards clickable (like in the achievements section via `a.card`) is a common UX pattern, but removing or neglecting the focus outline breaks keyboard navigation accessibility because the card doesn't visually indicate it's focused. Furthermore, the selector must correctly target the element itself (e.g., `a.card:focus-visible`) rather than its descendants (e.g., `.card a:focus-visible`).
 **Action:** Always provide a `:focus-visible` fallback with a visible outline on custom focusable container elements (like clickable cards) to ensure keyboard users can track their focus.
+
+## 2024-11-20 - Add focus-visible to skip to content links
+**Learning:** "Skip to main content" links (e.g., elements using `.visually-hidden-focusable`) must have an explicitly defined `:focus-visible` fallback outline in the global CSS. Because they rely entirely on keyboard focus to become visible, failing to provide this outline completely breaks their usability and visual feedback for keyboard navigation users.
+**Action:** Always provide an explicitly defined `:focus-visible` fallback with a visible outline in the global theme CSS for `.visually-hidden-focusable` elements to maintain keyboard navigation accessibility.
