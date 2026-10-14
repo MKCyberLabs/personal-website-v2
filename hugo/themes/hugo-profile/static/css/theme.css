@@ -137,3 +137,7 @@ footer a:focus-visible {
     outline: 2px solid var(--primary-color) !important;
     outline-offset: 2px;
 }
+
+#topScroll:focus-visible {
+    outline: 2px solid var(--primary-color);
+}
