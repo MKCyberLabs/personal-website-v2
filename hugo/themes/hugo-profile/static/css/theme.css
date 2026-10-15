@@ -135,5 +135,6 @@ footer a:focus-visible {
 
 .visually-hidden-focusable:focus-visible {
     outline: 2px solid var(--primary-color) !important;
-    outline-offset: 2px;
+    outline-offset: 2px !important;
 }
+
