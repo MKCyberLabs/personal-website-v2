@@ -416,3 +416,7 @@
 ## 2024-11-20 - Add focus-visible to skip to content links
 **Learning:** "Skip to main content" links (e.g., elements using `.visually-hidden-focusable`) must have an explicitly defined `:focus-visible` fallback outline in the global CSS. Because they rely entirely on keyboard focus to become visible, failing to provide this outline completely breaks their usability and visual feedback for keyboard navigation users.
 **Action:** Always provide an explicitly defined `:focus-visible` fallback with a visible outline in the global theme CSS for `.visually-hidden-focusable` elements to maintain keyboard navigation accessibility.
+
+## 2024-11-20 - Add focus-visible to navbar brand
+**Learning:** The `.navbar-brand` element often acts as the first interactive link on a page (returning home). However, custom styling that removes default focus indicators without replacing them explicitly makes the primary brand navigation invisible to keyboard users when focused.
+**Action:** Always ensure the `.navbar-brand` link has an explicitly defined `:focus-visible` state in the CSS, typically with an outline matching the theme's primary color, to guarantee keyboard navigation accessibility.
