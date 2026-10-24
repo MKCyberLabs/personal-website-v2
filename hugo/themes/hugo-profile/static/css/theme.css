@@ -142,3 +142,13 @@ footer a:focus-visible {
 #topScroll:focus-visible {
     outline: 2px solid var(--primary-color);
 }
+
+.navbar-brand:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-brand:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    border-radius: 4px;
+}
