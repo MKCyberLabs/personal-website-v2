@@ -45,6 +45,12 @@ header .navbar .navbar-nav a {
 header .nav-link{
     transition: none !important;
 }
+.navbar-brand:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 .navbar-brand {
     color: var(--primary-color) !important;
     opacity: 0.95;
